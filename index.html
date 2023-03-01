@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sach san pham</title>
+    <link rel="shortcut icon" type="image/png" href="imge\favicon.png" />
+</head>
+
+<body>
+    <style>
+    
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-family: 'Open Sans', sans-serif;
+            font-size:  14px;
+            line-height: 1.5;
+            color: #111;
+        }
+        #wrapper{
+            max-width: 1170px;
+            margin: 0 auto;
+        }
+        .headline{
+            text-align: center;
+            margin: 40px 0px;
+            
+        }
+        h3{
+            font-size: 18px;
+            color: #555;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border: 1px solid #bebebe;
+            display: inline-block;
+            font-weight: 600;
+        }
+        ul.products{
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        ul.products li{
+            flex-basis: 20%;
+            padding-left: 5px;
+            padding-right: 5px;
+            box-sizing: border-box;
+        }
+        ul.products li img{
+            max-width: 100%;
+            height: auto;
+        }
+        ul.products li .product-top{
+            position: relative;
+            overflow: hidden;
+        }
+        ul.products li:hover .product-top .product-thumb img{
+            filter: opacity(80%);
+        }
+        ul.products li .product-top .product-thumb img{
+            display: block;
+        }
+        ul.products li .product-top a.buy-now{
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            background-color: #446084;
+            color: #fff;
+            padding: 10px 0px;
+            position: absolute;
+            width: 100%;
+            bottom: -41px;
+            transition: 0.25s ease-in-out;
+            opacity: 0.85;
+        }
+        ul.products li :hover a.buy-now{
+            bottom: 0px;
+
+        }
+        ul.products li .product-info{
+            padding: 10px 0px;
+        }
+        ul.products li .product-info a{
+            display: block ;
+            text-decoration: none;
+        } 
+        ul.products li .product-info a.product-name a.product-color{
+            color: #334862;
+            padding: 3px 0px;
+        }
+        ul.products li .product-info .product-price{
+            color: #111;
+            padding: 1px 0px;
+            font-weight: 600;
+        }
+    </style>
+    <div id="wrapper">
+        <div class="headline">
+            <h3>Danh sách sản phẩm</h3>
+        </div>
+        <ul class="products">
+            <li>
+                <div class="product-item">
+                    <div class="product-top">
+                        <a href="../showproduct/product-detail_1.html" class="product-thumb">
+                            <img src="..\imge\img_product_item1.jpg"
+                                alt="">
+                        </a>
+                        <a href="../showproduct/product-detail_1.html" class="buy-now">Mua ngay</a>
+                    </div>
+                    <div class="product-info">
+                        <a href="../showproduct/product-detail_1.html" class="product-name">DÉP ADILETTE 22</a>
+                        <a href="../showproduct/product-detail_1.html" class="product-color">2 màu</a>
+                        <div class="product-price">1.400.000₫</div>
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <div class="product-item">
+                    <div class="product-top">
+                        <a href="../showproduct/product-detail_2.html" class="product-thumb">
+                            <img src="..\imge\img_product_item2.jpg"
+                                alt="">
+                        </a>
+                        <a href="../showproduct/product-detail_2.html" class="buy-now">Mua ngay</a>
+                    </div>
+                    <div class="product-info">
+                        <a href="../showproduct/product-detail_2.html" class="product-name">Giày Stan Smith</a>
+                        <a href="../showproduct/product-detail_2.html" class="product-color">2 màu</a>
+                        <div class="product-price">2.600.000₫</div>
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <div class="product-item">
+                    <div class="product-top">
+                        <a href="../showproduct/product-detail_3.html" class="product-thumb">
+                            <img src="..\imge\img_product_item3.jpg"
+                                alt="">
+                        </a>
+                        <a href="../showproduct/product-detail_3.html" class="buy-now">Mua ngay</a>
+                    </div>
+                    <div class="product-info">
+                        <a href="../showproduct/product-detail_3.html" class="product-name">Giày Superstar</a>
+                        <a href="../showproduct/product-detail_3.html" class="product-color">2 màu</a>
+                        <div class="product-price">2.600.000₫</div>
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <div class="product-item">
+                    <div class="product-top">
+                        <a href="../showproduct/product-detail_4.html" class="product-thumb">
+                            <img src="..\imge\img_product_item4.jpg"
+                                alt="">
+                        </a>
+                        <a href="../showproduct/product-detail_4.html" class="buy-now">Mua ngay</a>
+                    </div>
+                    <div class="product-info">
+                        <a href="../showproduct/product-detail_4.html" class="product-name">HARDEN VOLUME 7</a>
+                        <a href="../showproduct/product-detail_4.html" class="product-color">2 màu</a>
+                        <div class="product-price">4.200.000₫</div>
+                    </div>
+
+                </div>
+            </li>
+            <li>
+                <div class="product-item">
+                    <div class="product-top">
+                        <a href="../showproduct/product-detail_5.html" class="product-thumb">
+                            <img src="..\imge\img_product_item5.jpg"
+                                alt="">
+                        </a>
+                        <a href="../showproduct/product-detail_5.html" class="buy-now">Mua ngay</a>
+                    </div>
+                    <div class="product-info">
+                        <a href="../showproduct/product-detail_5.html" class="product-name">Giày Forum Low</a>
+                        <a href="../showproduct/product-detail_5.html" class="product-color">2 màu</a>
+                        <div class="product-price">2.500.000₫</div>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+
+        </ul>
+
+
+    </div>
+</body>
+
+</html>
