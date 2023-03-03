@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0 auto;
+            padding: 0;
+            /* background-color: red; */
+
+
+
+        }
+
+        .ex1,
+        .ex2,
+        .ex3,
+        .ex4 {
+            padding-top: 0px;
+            display: flex;
+            padding-bottom: 50px;
+
+        }
+
+        .red {
+            background-color: red;
+            /* flex-basis: 60%; */
+            height: 400px;
+            /* text-align: center; */
+
+            /* padding-left: 15px; */
+
+
+
+        }
+
+        body .ex2 .column {
+            margin-left: 15px;
+
+        }
+
+        .column1 {
+            flex-basis: 60%;
+            height: 400px;
+            /* padding-left: 15px; */
+        }
+
+        .column {
+            flex-basis: 40%;
+            height: 400px;
+            /* padding-left: 15px; */
+        }
+
+        .green {
+            background-color: green;
+            height: 200px;
+            text-align: center;
+        }
+
+        .blue {
+            background-color: blue;
+            height: 200px;
+            text-align: center;
+        }
+
+        .ex3 {
+            display: table;
+            width: 100%;
+            height: 400px;
+        }
+
+        .ex3 .red {
+            display: table-cell;
+            padding: 1rem;
+            /* background-color: red; */
+        }
+
+        .ex3 .green {
+            display: table-cell;
+            padding: 1rem;
+            /* background-color: green; */
+        }
+
+        .ex3 .blue {
+            display: table-cell;
+            padding: 1rem;
+            /* background-color: blue; */
+        }
+
+        .ex4 .red {
+            height: 400px;
+            /* text-align: center; */
+            width: calc(100% / 3);
+            margin-right: 15px;
+            /* box-sizing: border-box; */
+        }
+
+        .ex4 .green {
+            height: 400px;
+            /* text-align: center; */
+            width: calc(100% / 3);
+            margin-right: 15px;
+            /* padding-right: 15px; */
+            /* box-sizing: border-box; */
+        }
+
+        .ex4 .blue {
+            height: 400px;
+            /* text-align: center; */
+            width: calc(100% / 3);
+            /* padding-right: 15px;
+            box-sizing: border-box; */
+
+        }
+    </style>
+    <div class="ex1">
+        <div class="column1">
+            <div class="red"></div>
+        </div>
+
+        <div class="column">
+            <div class="green"></div>
+            <div class="blue"></div>
+        </div>
+    </div>
+
+    <div class="ex2">
+        <div class="column1">
+            <div class="red"></div>
+        </div>
+        <div class="column">
+            <div class="green"></div>
+            <div class="blue"></div>
+        </div>
+    </div>
+
+    <div class="ex3">
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+    </div>
+
+    <div class="ex4">
+
+        <div class="red"></div>
+
+
+        <div class="green "></div>
+
+
+        <div class="blue"></div>
+
+
+
+    </div>
+
+</body>
+
+</html>
