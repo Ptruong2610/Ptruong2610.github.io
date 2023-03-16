@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>adidas Nam - Giày | Sneaker Official</title>
     <link rel="shortcut icon" type="image/png" href="imge\adidas.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+
+    <title>adidas Nam - Giày | Sneaker Official</title>
+
 </head>
 
 <body>
@@ -25,6 +29,7 @@
             color: #111;
         }
 
+        /* Day la menu ngang */
         #nav_menu {
             max-width: 100%;
             /* margin-top: 10px; */
@@ -54,19 +59,22 @@
             justify-content: center;
             align-items: center;
             list-style-type: none;
-            margin: 0px 30px;
-            height: 80px;
+            /* min-width: 100px; */
+            border-bottom: 3px solid transparent;
+            transition: 0.3s
         }
 
-        #nav_menu ul li:last-child {
+        /* #nav_menu ul li:last-child {
             font-weight: 900px;
-        }
+        } */
 
         #nav_menu ul li a {
             text-decoration: none;
             color: #0C0A0A;
             font-weight: bold;
             text-transform: uppercase;
+            display: block;
+            padding: 32px;
         }
 
         #nav_menu ul img {
@@ -80,11 +88,13 @@
             border: none;
             font-size: 15px;
             background-color: #f1f1f1;
-            padding-left: 5px;
+            margin-left: 5px;
         }
 
-        #nav_menu ul li:hover {
-            border-bottom: 3.3px solid #111;
+        #nav_menu ul li a:hover {
+            border-bottom: 3px solid #111;
+            transition: 0.2s;
+            /* background-color: aquamarine; */
         }
 
 
@@ -93,34 +103,37 @@
         #wrapper {
             max-width: 1170px;
             margin: 0 auto;
+            /* display: flex; */
+        }
+
+        .wrapper_1 {
+            /* max-width: 1170px; */
+            margin: 0 auto;
             display: flex;
         }
 
-        .header {
-            margin: 40px 0;
-            margin-left: 310px;
-            position: relative;
 
-        }
 
         h1 {
             font-size: 35px;
             font-style: oblique;
             color: #111;
-            padding: 10px 20px;
-            margin: 5px 0;
+            /* padding: 40px 20px; */
+            padding-left: 5px;
+            margin: 40px 0;
             text-transform: uppercase;
             /* border: 1px solid #bebebe; */
-            display: inline-block;
+            /* display: inline-block; */
             font-weight: 400;
         }
 
+        /* Day la list danh sach san pham */
         ul.products {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-start;
-            margin-left: 150px;
+            /* margin-left: 150px; */
             /* overflow: scroll; */
         }
 
@@ -168,6 +181,7 @@
             opacity: 0.85;
         }
 
+
         ul.products li :hover a.buy-now {
             bottom: 0px;
 
@@ -193,68 +207,107 @@
             font-weight: 600;
         }
 
-        #menu {
-            margin-right: 0px;
-            position: absolute;
 
-
-        }
-
+        /* Day la menu doc va menu da cap */
         #menu ul {
             background: #fff;
-            width: 150px;
+            min-width: 180px;
             height: auto;
             padding: 0;
             list-style-type: none;
             text-align: left;
             margin-top: 2px;
-            position: fixed;
 
 
         }
 
-        #menu li {
+        #menu ul li {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
             width: auto;
             height: 40px;
-            line-height: 40px;
-            border-bottom: 1px solid #282828;
+            /* line-height: 40px; */
+            /* border-bottom: 1px solid #282828; */
             padding: 0 1em;
+            position: relative;
+            transition: 0.3s;
 
         }
 
-        #menu li:last-child {
+        /* #menu li:last-child {
             border-bottom: none;
-        }
+        } */
 
         #menu li a {
             text-decoration: none;
-            color: #0C0A0A;
+            color: #757575;
             font-weight: bold;
             display: block;
+            /* padding-right: 50px; */
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        #menu li i {
+            position: absolute;
+            top: 16px;
+            left: 170px;
+            /* display: none; */
+            font-size: 10px;
+        }
+
+        #menu li:hover>i {
+            display: block;
+            color: #f36d00;
+
         }
 
         #menu li:hover {
-            background: #f1f1f1;
+            transition: 0.3s;
+            background-color: #f1f1f1;
+
         }
 
-        /* #menu ul li {
-            position: relative;
-        } */
+        #menu li:hover>a {
+            color: #f36d00;
+            transition: 0.2s;
 
-        /* #menu .sub-menu {
+        }
+
+        #menu .sub-menu {
             position: absolute;
-            left: 150px;
-            top: -2px;
+            left: 180px;
+            top: -2.5px;
             display: none;
+            z-index: 2;
 
         }
 
-        #menu li:hover .sub-menu {
-            display: block;
-        } */
+        #menu .sub-menu li a {
+            text-transform: none;
+        }
 
+        #menu ul li:hover>.sub-menu {
+            display: block;
+            /* border: 1px solid #446084; */
+            /* background-color: aqua; */
+        }
+
+        */
+
+        /* z-index */
         #footer {
             margin: 50px;
+            /* max-width: 100%; */
+            float: right;
+
+
+        }
+
+        #footer a {
+            margin: 50px;
+            max-width: 100%;
             float: right;
 
 
@@ -279,219 +332,277 @@
 
         </ul>
     </div>
-    <div class="header">
-        <h1>Nam · Giày</h1>
-    </div>
+    <!-- <div class="header">
+
+    </div> -->
     <div id="wrapper">
-        <div id="menu">
-            <ul>
-                <li><a href="#">Bóng đá</a></li>
-                <li><a href="#">Chạy</a></li>
+        <h1>Nam · Giày</h1>
+
+        <div class="wrapper_1">
+            <div id="menu">
+                <ul>
+                    <li><a href="#">Bóng đá</a></li>
+                    <li><a href="#">Chạy</a></li>
+                    <li>
+                        <a href="#">Tập luyện </a>
+                        <i class="fas fa-chevron-right"></i>
+
+                        <ul class="sub-menu">
+                            <li><a href="#">Giày</a></li>
+
+                            <li>
+                                <a href="#">Nổi Bật</a>
+                                <i class="fas fa-chevron-right"></i>
+                                <ul class="sub-menu">
+                                    <li><a href="#">Ultraboost</a></li>
+                                    <li>
+                                        <a href="#">Stan Smith</a>
+                                    </li>
+                                    <li><a href="#">Superstar</a></li>
+                                    <li><a href="#">Adilette</a></li>
+                                    <li><a href="#">Adizero</a></li>
+
+                                </ul>
+                            </li>
+                            <li><a href="#">Quần Áo</a></li>
+                            <li><a href="#">Phụ Kiện</a></li>
+                            <li><a href="#">Giảm giá</a></li>
+                            <li><a href="#">Thể Thao</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="#">Essentials</a></li>
+                    <li>
+                        <a href="#">Ngoài trời</a>
+                        <i class="fas fa-chevron-right"></i>
+                        <ul class="sub-menu">
+                            <li><a href="#">Bóng Đá</a></li>
+
+                            <li>
+                                <a href="#">Basketball</a>
+                                <i class="fas fa-chevron-right"></i>
+                                <ul class="sub-menu">
+                                    <li><a href="#">giày cổ thấp</a></li>
+                                    <li>
+                                        <a href="#">Giày cổ cao</a>
+                                    </li>
+                                    <li><a href="#">MID Hanami</a></li>
+
+
+                                </ul>
+                            </li>
+                            <li><a href="#">Chạy</a></li>
+                            <li><a href="#">Đánh golf</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Bóng rổ</a>
+                    </li>
+                    <li><a href="#">Dép</a></li>
+                    <li><a href="#">Sportswear</a></li>
+                </ul>
+            </div>
+            <ul class="products">
                 <li>
-                    <a href="#">Tập luyện</a>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item1.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">DÉP ADILETTE 22</a>
+                            <a href="#" class="product-color">2 màu</a>
+                            <div class="product-price">1.400.000₫</div>
+                        </div>
+
+                    </div>
                 </li>
-                <li><a href="#">Essentials</a></li>
-                <li><a href="#">Ngoài trời</a></li>
-                <li><a href="#">Bóng rổ</a></li>
-                <li><a href="#">Dép</a></li>
-                <li><a href="#">Sportswear</a></li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item2.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày Stan Smith</a>
+                            <a href="#" class="product-color">2 màu</a>
+                            <div class="product-price">2.600.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item3.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày Superstar</a>
+                            <a href="#" class="product-color">2 màu</a>
+                            <div class="product-price">2.600.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item4.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">HARDEN VOLUME 7</a>
+                            <a href="#" class="product-color">2 màu</a>
+                            <div class="product-price">4.200.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item5.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày Forum Low</a>
+                            <a href="#" class="product-color">2 màu</a>
+                            <div class="product-price">2.500.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item6.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày Ultraboost Light</a>
+                            <a href="#" class="product-color">3 màu</a>
+                            <div class="product-price">5.200.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item7.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày Ultra adidas 4D</a>
+                            <a href="#" class="product-color">4 màu</a>
+                            <div class="product-price">6.000.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày EL Dorado Off White</a>
+                            <a href="#" class="product-color">1 màu</a>
+                            <div class="product-price">3.102.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày EL Dorado Off White</a>
+                            <a href="#" class="product-color">1 màu</a>
+                            <div class="product-price">3.102.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày EL Dorado Off White</a>
+                            <a href="#" class="product-color">1 màu</a>
+                            <div class="product-price">3.102.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày EL Dorado Off White</a>
+                            <a href="#" class="product-color">1 màu</a>
+                            <div class="product-price">3.102.000₫</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+                            <a href="#" class="buy-now">Mua ngay</a>
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Giày EL Dorado Off White</a>
+                            <a href="#" class="product-color">1 màu</a>
+                            <div class="product-price">3.102.000₫</div>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
-        <ul class="products">
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item1.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">DÉP ADILETTE 22</a>
-                        <a href="#" class="product-color">2 màu</a>
-                        <div class="product-price">1.400.000₫</div>
-                    </div>
 
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item2.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày Stan Smith</a>
-                        <a href="#" class="product-color">2 màu</a>
-                        <div class="product-price">2.600.000₫</div>
-                    </div>
 
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item3.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày Superstar</a>
-                        <a href="#" class="product-color">2 màu</a>
-                        <div class="product-price">2.600.000₫</div>
-                    </div>
 
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item4.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">HARDEN VOLUME 7</a>
-                        <a href="#" class="product-color">2 màu</a>
-                        <div class="product-price">4.200.000₫</div>
-                    </div>
+    </div>
 
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item5.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày Forum Low</a>
-                        <a href="#" class="product-color">2 màu</a>
-                        <div class="product-price">2.500.000₫</div>
-                    </div>
-
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item6.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày Ultraboost Light</a>
-                        <a href="#" class="product-color">3 màu</a>
-                        <div class="product-price">5.200.000₫</div>
-                    </div>
-
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item7.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày Ultra adidas 4D</a>
-                        <a href="#" class="product-color">4 màu</a>
-                        <div class="product-price">6.000.000₫</div>
-                    </div>
-
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày EL Dorado Off White</a>
-                        <a href="#" class="product-color">1 màu</a>
-                        <div class="product-price">3.102.000₫</div>
-                    </div>
-
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày EL Dorado Off White</a>
-                        <a href="#" class="product-color">1 màu</a>
-                        <div class="product-price">3.102.000₫</div>
-                    </div>
-
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày EL Dorado Off White</a>
-                        <a href="#" class="product-color">1 màu</a>
-                        <div class="product-price">3.102.000₫</div>
-                    </div>
-
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày EL Dorado Off White</a>
-                        <a href="#" class="product-color">1 màu</a>
-                        <div class="product-price">3.102.000₫</div>
-                    </div>
-
-                </div>
-            </li>
-            <li>
-                <div class="product-item">
-                    <div class="product-top">
-                        <a href="#" class="product-thumb">
-                            <img src="..\imge\img_product_item8.jpg" alt="Đây là ảnh sản phẩm">
-                        </a>
-                        <a href="#" class="buy-now">Mua ngay</a>
-                    </div>
-                    <div class="product-info">
-                        <a href="#" class="product-name">Giày EL Dorado Off White</a>
-                        <a href="#" class="product-color">1 màu</a>
-                        <div class="product-price">3.102.000₫</div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-
-        </ul>
     </div>
     <div id="footer">
         <a href="#"><img src="..\imge\back.png" alt=""></a>
