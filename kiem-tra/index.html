@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="..\imge\adidas.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <title>Balita</title>
+</head>
+
+<body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #111;
+        }
+
+        #wrapper {
+            max-width: 1170px;
+            margin: 0 auto;
+            /* display: flex; */
+        }
+
+        .wrapper_1 {
+            /* max-width: 1170px; */
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .header {
+
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-style: normal;
+            color: #111;
+            padding-left: 5px;
+            margin: 20px 0;
+
+            font-weight: 200;
+        }
+
+        #nav_menu {
+            max-width: 100%;
+            /* margin-top: 10px; */
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px;
+            background-color: #fff;
+            font-size: 13px;
+            border-bottom: 2px solid #f1f1f1;
+
+        }
+
+        #nav_menu ul {
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        #nav_menu ul li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style-type: none;
+            /* min-width: 100px; */
+
+        }
+
+        #nav_menu ul li:first-child>a {
+            font-weight: bold;
+        }
+
+        #nav_menu ul li a {
+            text-decoration: none;
+            color: #808080;
+            font-weight: 300;
+            text-transform: uppercase;
+            display: block;
+            padding: 32px;
+        }
+
+        ul.products {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            margin-top: 20px;
+            /* margin-left: 150px; */
+            /* overflow: scroll; */
+        }
+
+        ul.products li {
+            flex-basis: 50%;
+            /* max-height: 200px; */
+            padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: border-box;
+
+        }
+
+        ul.products li img {
+            max-width: 100%;
+            max-height: auto;
+            object-fit: cover;
+        }
+
+        ul.products li .product-info {
+            padding: 10px 0px;
+            margin-bottom: 20px;
+            margin-left: 15px;
+            /* border: 2px solid #f1f1f1; */
+        }
+
+        ul.products li .product-info a {
+            /* display: block; */
+            text-decoration: none;
+        }
+
+        ul.products li .product-info .product-name {
+            font-size: 10px;
+            color: #fff;
+            padding: 3px 10px;
+            margin-right: 10px;
+            background-color: #0000FF;
+            text-transform: uppercase;
+            border-radius: 5px;
+        }
+
+        ul.products li .product-info .color {
+            color: #C0C0C0;
+        }
+
+        ul.products li .product-info .product-price {
+            color: #444444;
+            padding: 1px 0px;
+            font-weight: 600;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        #menu ul {
+            background: #fff;
+            min-width: 180px;
+            height: auto;
+            padding: 0;
+            list-style-type: none;
+            text-align: left;
+            margin-top: 19px;
+            /* float: right; */
+            margin-left: 50px;
+
+
+        }
+
+        #menu ul li {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: auto;
+            height: 40px;
+            /* line-height: 40px; */
+            border-bottom: 1px solid #EEEEEE;
+            padding: 0 1em;
+            position: relative;
+            transition: 0.3s;
+
+        }
+
+        #menu ul li:last-child {
+            border-bottom: none;
+        }
+
+        #menu li a {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            text-decoration: none;
+            color: #0000FF;
+            font-weight: 500;
+            display: block;
+            /* padding: -50px; */
+            /* padding-right: 50px; */
+        }
+
+        #menu li:first-child>a {
+            color: #333333;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            display: block;
+            color: black;
+            float: left;
+            padding: 10px 15px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 50%;
+        }
+
+        .pagination a.active {
+            background-color: #0099FF;
+            color: white;
+            border: 1px solid #0099FF;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+        footer{ 
+            display: flex;
+            justify-content: center;
+            margin-top:50px ;
+            /* margin-left:80px ;
+            margin-right: 80px; */
+            background-color: #330000;
+        }
+        footer .p {
+            color: #fff;
+            display: block;
+            padding: 20px 0;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+    </style>
+    <div id="wrapper">
+        <div class="header">
+            <h1>
+                Balita
+            </h1>
+        </div>
+        <div id="nav_menu">
+            <ul>
+
+                <li><a href="..\kiem-tra\index.html">home</a></li>
+                <li><a href="#">travel</a></li>
+                <li><a href="#">categories</a></li>
+                <li><a href="..\kiem-tra\kiemtra-1.html">about</a></li>
+                <li><a href="#">contact</a></li>
+
+            </ul>
+        </div>
+        <div class="wrapper_1">
+            <ul class="products">
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item9.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Food</a>
+                            <a href="#" class="color">March 15, 2018</a>
+
+                            <div class="product-price">Đây là một thắng cảnh tại Việt Nam mà không vất kì đâu trên thế giới đẹp bằng</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item9.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">travel</a>
+                            <a href="#" class="color">March 15, 2018</a>
+
+                            <div class="product-price">Đây là một món ăn rất ngon tại việt nam</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item9.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Food</a>
+                            <a href="#" class="color">March 15, 2018</a>
+
+                            <div class="product-price">Đây là một món ăn rất ngon tại việt nam</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item9.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Food</a>
+                            <a href="#" class="color">March 15, 2018</a>
+
+                            <div class="product-price">Đây là một món ăn rất ngon tại việt nam</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item9.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Food</a>
+                            <a href="#" class="color">March 15, 2018</a>
+
+                            <div class="product-price">Đây là một món ăn rất ngon tại việt nam</div>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="#" class="product-thumb">
+                                <img src="..\imge\img_product_item9.jpg" alt="Đây là ảnh sản phẩm">
+                            </a>
+
+                        </div>
+                        <div class="product-info">
+                            <a href="#" class="product-name">Food</a>
+                            <a href="#" class="color">March 15, 2018</a>
+
+                            <div class="product-price">Đây là một món ăn rất ngon tại việt nam</div>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+            <div id="menu">
+                <ul>
+                    <li><a href="#">Cotegories</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li>
+                        <a href="#">News</a>
+                    </li>
+                    <li><a href="#">Design</a></li>
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">Web Development</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="center">
+            <div class="pagination">
+                <a href="#" class="active">Prev</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                
+                <a href="#">Next</a>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <div class="p">
+            Copyright ©2023 All rights reserved
+        </div>
+    </footer>
+
+</body>
+
+</html>
