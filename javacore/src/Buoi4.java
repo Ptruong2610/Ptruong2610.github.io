@@ -53,6 +53,7 @@ public class Buoi4 {
         }
         int sumChan =0;
         int sumLe = 0;
+        int sum=0;
         System.out.println("Mang vừa nhập là:");
         for(int i = 0; i < numbers.length; i++){
             for(int j = 0; j < numbers[i].length; j++){
@@ -62,10 +63,14 @@ public class Buoi4 {
                 }else {
                     sumLe+=numbers[i][j];
                 }
+                if(numbers[i][j]%3==0){
+                    sum+= numbers[i][j];
+                }
                 System.out.print(numbers[i][j] + "\t");
             }
             System.out.println();
         }
+        System.out.println(sum);
         System.out.println("Tông các phần tử là chẵn trong mảng là :" +sumChan);
         System.out.println("Tông các phần tử là chẵn trong mảng là :" +sumLe);
     }

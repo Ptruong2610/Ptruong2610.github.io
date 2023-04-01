@@ -21,7 +21,7 @@ public class Ex4 {
             System.out.print("Nhập số phần tử cho mảng n = ");
              n = scanner.nextInt();
 
-        }while(n<0);
+        }while(n<=0);
         int array[] = new int[n];
         System.out.println("Mời bạn nhập các phần tử cho mảng: ");
         for (int i = 0; i <n; i++) {
