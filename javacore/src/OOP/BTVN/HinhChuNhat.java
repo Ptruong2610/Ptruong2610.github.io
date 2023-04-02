@@ -1,4 +1,4 @@
-package OOP;
+package OOP.BTVN;
 
 public class HinhChuNhat extends HinhHoc{
 
@@ -37,4 +37,11 @@ public class HinhChuNhat extends HinhHoc{
         System.out.println("Diện tích hình chữ nhật là:" +super.dienTichHCN(length,width));
     }
 
+    @Override
+    public String toString() {
+        return "HinhChuNhat{" +
+                "length=" + length +
+                ", width=" + width +
+                '}';
+    }
 }

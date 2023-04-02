@@ -1,4 +1,4 @@
-package OOP;
+package OOP.BTVN;
 
 public class HinhVuong extends HinhHoc{
     private double side;
@@ -23,6 +23,13 @@ public class HinhVuong extends HinhHoc{
     }
     public void tinhDienTichHV(){
         System.out.println("Chu vi hình vuông là: "+super.dienTichHV(side));
+    }
+
+    @Override
+    public String toString() {
+        return "HinhVuong{" +
+                "side=" + side +
+                '}';
     }
 }
 
