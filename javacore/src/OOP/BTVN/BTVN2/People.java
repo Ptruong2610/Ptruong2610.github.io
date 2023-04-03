@@ -1,4 +1,4 @@
-package OOP.BTVN;
+package OOP.BTVN.BTVN2;
 
 import java.util.Scanner;
 
@@ -45,9 +45,18 @@ public class People {
     public String getDateOfBirth() {
         return dateOfBirth;
     }
-
+// nghe thấy a ns j k có mà tiếng hơi bé
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
+                ", address='" + address + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'';
     }
 
     public void input(Scanner scanner){
@@ -56,13 +65,6 @@ public class People {
         System.out.print("Nhập giới tính: ");gender = scanner.nextLine();
         System.out.print("Nhập địa chỉ: ");address = scanner.nextLine();
         System.out.print("Nhập ngày tháng năm sinh :");dateOfBirth = scanner.nextLine();
-    }
-    public void output(){
-
-        System.out.println("Họ Tên : "+getName());
-        System.out.println(" giới tính: "+getGender());
-        System.out.println(" địa chỉ: "+getAddress());
-        System.out.println("ngày tháng năm sinh :"+getDateOfBirth());
     }
 
 }

@@ -1,4 +1,4 @@
-package OOP.BTVN;
+package OOP.BTVN.BTVN1;
 
 public class HinhChuNhat extends HinhHoc{
 
@@ -29,12 +29,14 @@ public class HinhChuNhat extends HinhHoc{
         this.width = width;
     }
 
-    public void tinhChuViHCN(){
-//        super.chuViHCN(length,width);
-        System.out.println("Chu vi HCN là:" +super.chuViHCN(length,width));
+    @Override
+    public double chuVi() {
+        return (length+width)*2;
     }
-    public void tinhDienTichHCN(){
-        System.out.println("Diện tích hình chữ nhật là:" +super.dienTichHCN(length,width));
+
+    @Override
+    public double dienTich() {
+        return length*width;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package OOP.BTVN;
+package OOP.BTVN.BTVN2;
 
 import java.util.Scanner;
 
@@ -31,17 +31,19 @@ public class Doctor extends People{
         this.workTime = workTime;
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+
+                "department='" + department + '\'' +
+                ", workTime=" + workTime +
+                '}';
+    }
+
     public void inputDoctor(Scanner scanner){
         System.out.println("Nhập thông tin của bác sĩ");
         super.input(scanner);
         System.out.print("Nhập chuyên khoa:");department = scanner.nextLine();
         System.out.print("Nhập số giờ làm việc: ");workTime = Double.parseDouble(scanner.nextLine());
     }
-    public void outputDoctor(){
-        System.out.println("-----------------------------");
-        System.out.println("Thông tin của bac sĩ:");
-        super.output();
-        System.out.println("chuyên khoa:"+getDepartment());
-        System.out.println("Số giờ làm việc:"+getWorkTime());
-    }
+
 }

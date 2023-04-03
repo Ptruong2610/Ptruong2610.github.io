@@ -1,4 +1,4 @@
-package OOP.BTVN;
+package OOP.BTVN.BTVN2;
 
 import java.util.Scanner;
 
@@ -31,6 +31,14 @@ public class Patient extends People {
         this.hospitalizedDay = hospitalizedDay;
     }
 
+    @Override
+    public String toString() {
+        return super.toString()+
+                "medicalRecord=" + medicalRecord +
+                ", hospitalizedDay='" + hospitalizedDay + '\'' +
+                '}';
+    }
+
     public void inputPatient(Scanner scanner){
         System.out.println("Nhập Thông tin của bệnh nhân:");
         super.input(scanner);
@@ -38,11 +46,5 @@ public class Patient extends People {
         System.out.print("Nhập ngày vào viện:");hospitalizedDay = scanner.nextLine();
     }
 
-    public void outputPatient(){
-        System.out.println("-----------------------------");
-        System.out.println("Thông tin của bệnh nhân:");
-        super.output();
-        System.out.println("số bệnh án:"+getMedicalRecord());
-        System.out.println("ngày vào viện:"+getHospitalizedDay());
-    }
+
 }
