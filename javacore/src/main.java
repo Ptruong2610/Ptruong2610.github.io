@@ -32,13 +32,10 @@ public class main {
                 }
             }while (students[i].getScoreMath()<0||students[i].getScoreMath()>10||students[i].getScourePhysic()<0
                     ||students[i].getScourePhysic()>10||students[i].getScoureChemistry()<0||students[i].getScoureChemistry()>10);
-//            Student student = studentHandle.inputStudent(scanner, i);
-//            //Lưu student vào trong array;
-//            students[i] = student;
         }
         //Display student form students[]
         studentHandle.displayStudents(students,n);
-        //Display phần trăm loại học sinh
+        //Display Rating PercentageStudent
         studentHandle.getPercentage(students,n);
 
     }
