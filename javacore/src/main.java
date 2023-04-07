@@ -1,28 +1,30 @@
+import entity.Student;
+import handle.StudentHandle;
+import view.Menu;
+
+import java.util.Scanner;
+
 public class main {
     public static void main(String[] args) {
-        // chu vi hinh chu nhat: (a+b)*2
-        // dien tich hinh chu nhat: a*b
-        double heigh = 10;
-        double width= 20;
-        double p= (heigh+width)*2;
-        double s= heigh*width;
-        // dien tich hinh tron S= r*r*PI
-        // chi vi hinh tron C= 2*r*PI
-        //d duong kinh hinh trong d=2*r;
-        final double S = 113;
-        double r = Math.sqrt(S/Math.PI);
-        double C = 2*r*Math.PI;
-        System.out.println(2*r);
-        System.out.print("Chu vi hinh tron la:");
-        System.out.println(C);
-        System.out.println(p);
-        System.out.println(s);
 
-        //<điều kiện> ? < biểu thức 1> : <Biểu thức2>;
-        String condition = heigh> width ? "ok" : "no";
-        System.out.println(condition);
+        Scanner scanner = new Scanner(System.in);
+//        Menu menu = new Menu();
+//        menu.selectType(scanner);
+        System.out.println("Mời bạn nhập số lượng student muốn tạo:");
+        int n = Integer.parseInt(scanner.nextLine());
+
+        Student[] students = new Student[n];
+        StudentHandle studentHandle = new StudentHandle();
+        for (int i = 0; i < n; i++) {
+            //Creat student
+            Student student = studentHandle.inputStudent(scanner, i);
+            //Lưu student vào trong array;
+            students[i] = student;
+        }
+        //Display student form students[]
+        studentHandle.displayStudents(students,n);
+        //Display phần trăm loại học sinh
+        studentHandle.getPercentage(students,n);
+
     }
-//    public static void chuVi(double heigh, double width){
-//        double p= heigh*width;
-//    }
 }
