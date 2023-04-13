@@ -12,7 +12,7 @@ public class SummonRiftHandle {
         String timeStart = scanner.nextLine();
         ArrayList<Teams> teams = new ArrayList<>();
         System.out.println("Mười bạn nhập vào 2 team:");
-        handle.TeamsHandle teamsHandle = new TeamsHandle();
+        TeamsHandle teamsHandle = new TeamsHandle();
         for (int i = 0; i < 2; i++) {
             Teams teams1 = teamsHandle.inputTeams(scanner);
             teams.add(teams1);
