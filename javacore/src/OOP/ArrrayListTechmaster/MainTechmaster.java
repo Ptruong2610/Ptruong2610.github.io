@@ -43,15 +43,15 @@ public class MainTechmaster {
         System.out.println("Thông tin trung tâm TechMaster");
         System.out.println(techMasters);
         //thêm
-        Student student = studentHandle.inputStudent(scanner);
-        studentHandle.addStudent(scanner, students, student);
+//        Student student = studentHandle.inputStudent(scanner);
+        studentHandle.addStudent(scanner, students);
         System.out.println(techMasters);
 
         //Sửa
-        studentHandle.editStudentByID(scanner,students,student);
+        studentHandle.editStudentByID(scanner,students);
         System.out.println(techMasters);
         //Xóa
-        studentHandle.deleteStudent(scanner,students,student);
+        studentHandle.deleteStudent(scanner,students);
         System.out.println(techMasters);
     }
 }
