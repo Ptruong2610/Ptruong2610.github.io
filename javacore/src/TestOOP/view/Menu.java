@@ -9,7 +9,6 @@ public class Menu {
     private void showMenu(){
         System.out.println("1. Đăng nhập");
         System.out.println("2. Đăng ký");
-        System.out.println("3. danh sách tài khoản:");
         System.out.println("Mời bạn chọn: ");
     }
     private void showMenuErrPassword(){
@@ -42,6 +41,7 @@ public class Menu {
                 break;
             default:
                 System.out.println("Nhập lại!!!");
+                selectMenu(scanner,users);
                 break;
         }
     }
@@ -73,7 +73,7 @@ public class Menu {
                     break;
                 default:
                     System.out.println("Chọn lại!!!");
-//                    menuLogin(scanner,users,userName);
+                    menuLogin(scanner,users,userName);
                     break;
             }
     }
@@ -84,7 +84,8 @@ public class Menu {
         int option = Integer.parseInt(scanner.nextLine());
         switch (option){
             case 1:
-                selectMenu(scanner,users);
+//                selectMenu(scanner,users);
+                userHandle.siginUser(scanner,users);
                 System.out.println();
                 break;
             case 2:
@@ -92,8 +93,8 @@ public class Menu {
                 userHandle.searchEmailUpdatePassword(scanner,userSearchEmail,users);
                 break;
             default:
-                System.out.println("Chọn lại!!!");
-//                menuErrPassword(scanner,users);
+                System.out.println("Chọn lại: 1 or 2 !!!");
+                menuErrPassword(scanner,users,userName);
                 break;
         }
     }
