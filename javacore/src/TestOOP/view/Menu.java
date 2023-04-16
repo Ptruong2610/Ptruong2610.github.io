@@ -37,11 +37,8 @@ public class Menu {
                 break;
             case 2:
                 userHandle.addUser(scanner,users);
-
+                System.out.println("Tạo tài khoản tài khoản thành công");
                 selectMenu(scanner,users);
-                break;
-            case 3:
-                userHandle.displayUser(users);
                 break;
             default:
                 System.out.println("Nhập lại!!!");

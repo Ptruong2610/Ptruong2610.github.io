@@ -1,16 +1,9 @@
 package TestOOP.entity;
 
-import java.util.ArrayList;
-
 public class User {
     private String userName ;
     private String passWord ;
     private String email ;
-
-
-    public User() {
-    }
-
 
     public User(String userName, String passWord) {
         this.userName = userName;

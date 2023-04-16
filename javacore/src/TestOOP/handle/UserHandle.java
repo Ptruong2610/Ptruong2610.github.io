@@ -106,7 +106,6 @@ public class UserHandle {
     public void editUserName(Scanner scanner,ArrayList<User>users,User user){
         System.out.print("Nhập username mới: ");
         String newUserName = scanner.nextLine();
-//        Menu menu = new Menu();
         if (user != null && !user.getUserName().equals(newUserName)) {
             user.setUserName(newUserName);
             System.out.println(" thành công!. Xin mời bạn đăng nhập lại để tiếp tục :");
@@ -122,7 +121,6 @@ public class UserHandle {
     public void editPassword(Scanner scanner,ArrayList<User> users,User user){
         System.out.print("Nhập password mới: ");
         String newPassword = scanner.nextLine();
-//        Menu menu = new Menu();
         if (user!=null&&checkRegexPassword(newPassword)){
             user.setPassWord(newPassword);
             System.out.println("Thành công!. Xin mời bạn đăng nhập lại để tiếp tục :");
@@ -140,7 +138,6 @@ public class UserHandle {
         if (user != null&&user.getEmail().equals(newEmail)) {
             System.out.println("Email đã tồn tại, Nhập lại!");
             editEmail(scanner, user);
-//            editUserName(user,users,newUserName);
         }else if (user != null&&!checkRegexEmail(newEmail)){
             System.out.println("Email sai cú pháp, Nhập lại!");
             editEmail(scanner, user);
