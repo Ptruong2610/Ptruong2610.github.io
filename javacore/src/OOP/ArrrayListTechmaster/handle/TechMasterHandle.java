@@ -21,8 +21,5 @@ public class TechMasterHandle {
 //        TechMaster techMaster = new TechMaster(classManage,lecturer,classrooms);
 //        return techMaster;
 //    }
-    public void refreshClassroom(Scanner scanner,ArrayList<Classroom> classrooms){
 
-
-    }
 }
