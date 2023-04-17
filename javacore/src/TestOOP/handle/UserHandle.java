@@ -18,6 +18,7 @@ public class UserHandle {
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getUserName().equals(userName)||users.get(i).getEmail().equals(email)) {
                 check = true;
+                break;
             }
         }
         if (check){
@@ -35,10 +36,9 @@ public class UserHandle {
             User user =new User(userName,password,email);
             users.add(user);
         }
-
     }
 
-    public void siginUser(Scanner scanner,ArrayList<User> users) {
+    public void signInUser(Scanner scanner,ArrayList<User> users) {
         Menu menu = new Menu();
         System.out.print("Nhập username:");
         String userName = scanner.nextLine();
@@ -48,11 +48,12 @@ public class UserHandle {
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getUserName().equals(userName) ) {
                 check = true;
+                break;
             }
         }
         if (!check) {
             System.out.println("Kiểm tra lại username");
-            siginUser(scanner, users);
+            signInUser(scanner, users);
         }
         for (int i = 0; i < users .size(); i++) {
             if (users.get(i).getUserName().equals(userName)&&!users.get(i).getPassWord().equals(password)){
@@ -67,7 +68,6 @@ public class UserHandle {
                 menu.menuLogin(scanner, users, userName);
             }
         }
-
     }
 
     public boolean checkRegexPassword(String password){
@@ -87,14 +87,6 @@ public class UserHandle {
         return null;
     }
 
-    public User checkByPassword(Scanner scanner,ArrayList<User> users,String passWord){
-
-        for (User user: users) {
-            if(user.getPassWord().equals(passWord)) return user;
-        }
-        return null;
-    }
-
     public User checkByEmail(Scanner scanner,ArrayList<User> users, String email){
 
         for (User user: users) {
@@ -106,16 +98,43 @@ public class UserHandle {
     public void editUserName(Scanner scanner,ArrayList<User>users,User user){
         System.out.print("Nhập username mới: ");
         String newUserName = scanner.nextLine();
-        if (user != null && !user.getUserName().equals(newUserName)) {
-            user.setUserName(newUserName);
-            System.out.println(" thành công!. Xin mời bạn đăng nhập lại để tiếp tục :");
-            siginUser(scanner,users);
+        boolean check = false;
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getUserName().equals(newUserName) ) {
+                check = true;
+                break;
+            }
         }
-        else{
+        if (check){
             System.out.println("username đã tồn tại, Nhập lại!");
             editUserName(scanner,users, user);
+        }else if (user != null) {
+            user.setUserName(newUserName);
+            System.out.println("Đỏi username thành công!Vui Lòng đăng nhập lại để tiếp tục");
+            signInUser(scanner,users);
         }
 
+    }
+
+    public void editEmail(Scanner scanner,ArrayList<User> users,User user){
+        System.out.print("Nhập email mới: ");
+        String newEmail = scanner.nextLine();
+        boolean check = false;
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getEmail().equals(newEmail)){
+                check = true;
+                break;
+            }
+        }
+        if (check&&user!=null){
+            System.out.println("Email đã tồn tại, Nhập lại!");
+            editEmail(scanner,users,user);
+        }else if (!check &&user!=null&&!checkRegexEmail(newEmail)){
+            System.out.println("Email sai cú pháp, Nhập lại!");
+            editEmail(scanner,users,user);
+        }else if (!check &&user!=null&&checkRegexEmail(newEmail)){
+            user.setEmail(newEmail);
+        }
     }
 
     public void editPassword(Scanner scanner,ArrayList<User> users,User user){
@@ -123,29 +142,14 @@ public class UserHandle {
         String newPassword = scanner.nextLine();
         if (user!=null&&checkRegexPassword(newPassword)){
             user.setPassWord(newPassword);
-            System.out.println("Thành công!. Xin mời bạn đăng nhập lại để tiếp tục :");
-            siginUser(scanner,users);
-
+            System.out.println("Đỏi password thành công!Vui Lòng đăng nhập lại để tiếp tục");
+            signInUser(scanner,users);
         }else {
             System.out.println("Sai cú pháp,password dài từ 7 đến 15 ký tự, chứa ít nhất 1 ký tự in hoa, 1 ký tự đặc biệt (. , - _ ;), Nhập lại!");
             editPassword(scanner,users,user);
         }
     }
 
-    public void editEmail(Scanner scanner,User user){
-        System.out.print("Nhập email mới: ");
-        String newEmail = scanner.nextLine();
-        if (user != null&&user.getEmail().equals(newEmail)) {
-            System.out.println("Email đã tồn tại, Nhập lại!");
-            editEmail(scanner, user);
-        }else if (user != null&&!checkRegexEmail(newEmail)){
-            System.out.println("Email sai cú pháp, Nhập lại!");
-            editEmail(scanner, user);
-
-        }else if(user != null&&checkRegexEmail(newEmail)&&!user.getEmail().equals(newEmail)){
-            user.setEmail(newEmail);
-        }
-    }
 
     public void searchEmailUpdatePassword(Scanner scanner, User user,ArrayList<User> users){
         System.out.println("Mời bạn nhập vào Email");
@@ -166,5 +170,4 @@ public class UserHandle {
 
         }
     }
-
 }

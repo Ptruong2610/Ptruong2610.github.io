@@ -32,7 +32,7 @@ public class Menu {
 
         switch (option){
             case 1:
-                userHandle.siginUser(scanner,users);
+                userHandle.signInUser(scanner,users);
                 break;
             case 2:
                 userHandle.addUser(scanner,users);
@@ -40,7 +40,7 @@ public class Menu {
                 selectMenu(scanner,users);
                 break;
             default:
-                System.out.println("Nhập lại!!!");
+                System.out.println("Chọn lại!!!");
                 selectMenu(scanner,users);
                 break;
         }
@@ -56,14 +56,13 @@ public class Menu {
                     break;
                 case 2:
                     User userEditEmail= userHandle.checkByUserName(users,userName);
-                    userHandle.editEmail(scanner,userEditEmail);
-                    System.out.println("thành công!");
+                    userHandle.editEmail(scanner,users,userEditEmail);
+                    System.out.println("Đổi Email thành công!Mời bạn tiếp tục công việc");
                     menuLogin(scanner,users,userName);
                     break;
                 case 3:
                     User userEditPassword = userHandle.checkByUserName(users,userName);
                     userHandle.editPassword(scanner,users,userEditPassword);
-
                     break;
                 case 4:
                     selectMenu(scanner, users);
@@ -71,6 +70,7 @@ public class Menu {
                 case 5:
                     System.exit(0);
                     break;
+
                 default:
                     System.out.println("Chọn lại!!!");
                     menuLogin(scanner,users,userName);
@@ -85,7 +85,7 @@ public class Menu {
         switch (option){
             case 1:
 //                selectMenu(scanner,users);
-                userHandle.siginUser(scanner,users);
+                userHandle.signInUser(scanner,users);
                 System.out.println();
                 break;
             case 2:
