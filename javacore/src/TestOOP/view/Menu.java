@@ -48,8 +48,9 @@ public class Menu {
 
         }catch (NumberFormatException  e){
             System.out.println("Bạn phải nhập vào số");
+        }finally {
+            selectMenu(scanner,users);
         }
-        selectMenu(scanner,users);
     }
     public void menuLogin(Scanner scanner, ArrayList<User> users,String userName){
         UserHandle userHandle = new UserHandle();
@@ -85,8 +86,9 @@ public class Menu {
                 }
             }catch (NumberFormatException  e) {
                 System.out.println("Lỗi!Bạn phải nhập vào số");
+            }finally {
+                menuLogin(scanner,users,userName);
             }
-        menuLogin(scanner,users,userName);
     }
 
     public void menuErrPassword(Scanner scanner,ArrayList<User> users,String userName){
@@ -110,9 +112,9 @@ public class Menu {
             }
         }catch (NumberFormatException  e) {
             System.out.println("Lỗi!Bạn phải nhập vào số");
+        }finally {
+            menuErrPassword(scanner,users,userName);
         }
-        menuErrPassword(scanner,users,userName);
-
     }
 
 
