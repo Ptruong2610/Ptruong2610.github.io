@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b4822deb-3e40-47cb-a74e-7dd64e4894fc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../Do an/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Do an/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Do an/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Do an/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Do an/Do an.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Do an/src/MainWeb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Do an/src/entity/Oder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Do an/src/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Do an/src/handle/OderHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Do an/src/handle/ProductHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Ptruong2610.github.io.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/Test15.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/MainSchool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/MainWeb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/entity/Class.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/entity/School.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/entity/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/entity/Student1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/entity/StudentManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/handle/ClassHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Test15/src/handle/StudentHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MainTienDien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../entity/BienLai.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../entity/KhachHang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../entity/NVHanhChinh.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../entity/NVTiepThi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../entity/Personn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../entity/TruongPhong.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../handle/BienLaiHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../handle/KhachHangHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../handle/NVHanhChinhHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../kiem-tra/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../kiem-tra/.idea/kiem-tra.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../kiem-tra/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../kiem-tra/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../kiem-tra/.idea/vcs.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2OyOrqvIij0oru0ytAIOsuqtRN8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4822deb-3e40-47cb-a74e-7dd64e4894fc" name="Default Changelist" comment="" />
+      <created>1682529556981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682529556981</updated>
+      <workItem from="1682529558153" duration="27000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
