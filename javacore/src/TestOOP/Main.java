@@ -16,6 +16,11 @@ public class Main {
         String email = "smaker26101998@gmail.com";
         User user = new User(userName,password,email);
         users.add(user);
+        String userName1 = "admin1";
+        String password1 = "admin1";
+        String email1 = "smaker26101998@gmail.com";
+        User user1 = new User(userName1,password1,email1);
+        users.add(user1);
         Menu menu = new Menu();
         menu.selectMenu(scanner,users);
 
