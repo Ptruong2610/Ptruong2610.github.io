@@ -4,12 +4,14 @@ public class Product {
     private static int autoID;
     private int id;
     private String name;
-    protected  int number;
-    protected int price;
+    private String nameBrand;
+    private   int number;
+    private int price;
 
-    public Product(String name, int number, int price) {
+    public Product(String name, String nameBrand, int number, int price) {
         this.id = ++autoID;
         this.name = name;
+        this.nameBrand = nameBrand;
         this.number = number;
         this.price = price;
     }
@@ -28,6 +30,14 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNameBrand() {
+        return nameBrand;
+    }
+
+    public void setNameBrand(String nameBrand) {
+        this.nameBrand = nameBrand;
     }
 
     public int getNumber() {
@@ -51,8 +61,9 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", nameBrand='" + nameBrand + '\'' +
                 ", number=" + number +
-                ", price=" + price +
+                ", price=" + price +'$'+
                 '}';
     }
 }

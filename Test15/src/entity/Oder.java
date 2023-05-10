@@ -1,25 +1,28 @@
 package entity;
 
+import handle.ProductHandle;
+
+import java.util.ArrayList;
+
 public class Oder {
     private static int autoID;
     private int id;
     private int userID;
-    private String nameProduct;
-    private int numberBuy;
-    private int priceProduct;
-    private int amount;
-    private String customerName;
+    ArrayList<OderDetail> oderDetails;
+    private String nameCustomer;
     private String address;
     private String phone;
     private String status;
 
-    public Oder(int userID, String nameProduct, int numberBuy, int priceProduct, String customerName, String address, String phone, String status) {
+    public ArrayList<OderDetail> getOderDetails() {
+        return oderDetails;
+    }
+
+    public Oder(int userID, ArrayList<OderDetail> oderDetails, String nameCustomer, String address, String phone, String status) {
         this.id = ++autoID;
         this.userID = userID;
-        this.nameProduct = nameProduct;
-        this.numberBuy = numberBuy;
-        this.priceProduct = priceProduct;
-        this.customerName = customerName;
+        this.oderDetails = oderDetails;
+        this.nameCustomer = nameCustomer;
         this.address = address;
         this.phone = phone;
         this.status = status;
@@ -41,62 +44,6 @@ public class Oder {
         this.userID = userID;
     }
 
-    public String getNameProduct() {
-        return nameProduct;
-    }
-
-    public void setNameProduct(String nameProduct) {
-        this.nameProduct = nameProduct;
-    }
-
-    public int getNumberBuy() {
-        return numberBuy;
-    }
-
-    public void setNumberBuy(int numberBuy) {
-        this.numberBuy = numberBuy;
-    }
-
-    public int getPriceProduct() {
-        return priceProduct;
-    }
-
-    public void setPriceProduct(int priceProduct) {
-        this.priceProduct = priceProduct;
-    }
-
-    public int getAmount() {
-        return (getNumberBuy()*getPriceProduct());
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -110,14 +57,27 @@ public class Oder {
         return "Oder{" +
                 "id=" + id +
                 ", userID=" + userID +
-                ", nameProduct='" + nameProduct + '\'' +
-                ", numberBuy=" + numberBuy +
-                ", priceProduct=" + priceProduct +
-                ", amount=" + getAmount() +
-                ", customerName='" + customerName + '\'' +
+                ", oderDetails=" + oderDetails +
+                ", nameCustomer='" + nameCustomer + '\'' +
                 ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phone=" + phone +
                 ", status='" + status + '\'' +
                 '}';
+    }
+    public String printOder(ArrayList<Product> products){
+//        ProductHandle handle = new ProductHandle();
+//
+//        for (OderDetail oderdetail:oderDetails
+//             ) {
+//            Product product = handle.checkByProductID(products, oderdetail.getProductID());
+            return "Oder{" +
+                    "id=" + id +
+                    ", userID=" + userID +
+                    ", nameCustomer='" + nameCustomer + '\'' +
+                    ", address='" + address + '\'' +
+                    ", phone=" + phone +
+                    ", status='" + status + '\''+
+                    " - ";
+//        }
     }
 }

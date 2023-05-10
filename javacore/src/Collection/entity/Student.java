@@ -1,12 +1,12 @@
-package entity;
+package Collection.entity;
 
-public class Student1 {
+public class Student {
     private static int autoID;
     private int id;
     private String name;
     private double score;
 
-    public Student1( String name, double score) {
+    public Student(String name, double score) {
         this.id = ++autoID;
         this.name = name;
         this.score = score;
@@ -38,9 +38,8 @@ public class Student1 {
 
     @Override
     public String toString() {
-        return "Student1{" +
-                "autoID=" + autoID +
-                ", id=" + id +
+        return "Student{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", score=" + score +
                 '}';

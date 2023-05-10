@@ -1,6 +1,7 @@
 package handle;
 
 import entity.Oder;
+import entity.OderDetail;
 import entity.Product;
 import entity.User;
 import view.Menu;
@@ -41,7 +42,7 @@ public class UserHandle {
                     menu.selectMenuUserLogin(scanner,products,users,oders,userName);
                 }else if (users.get(i).getRole()==1){
                     System.out.println("Chào mừng " + userName);
-                    menu.selectMenuAdminLogin(scanner,products,users,oders,userName);
+                    menu.selectMenuAdminLogin(scanner,products,users,oders);
                 }
             }
         }
@@ -89,7 +90,6 @@ public class UserHandle {
         User user = new User(username,password,email,0);
         users.add(user);
         System.out.println("Đăng ký tài khoản thành công! Xin mời bạn đăng nhập");
-        displayUser(users);
         login(scanner,products,users,oders);
 
 

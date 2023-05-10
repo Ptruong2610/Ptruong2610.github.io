@@ -23,7 +23,6 @@ public class Main {
         users.add(user1);
         Menu menu = new Menu();
         menu.selectMenu(scanner,users);
-
     }
 
 
