@@ -228,19 +228,24 @@ public class Menu {
 
         UserHandle userHandle = new UserHandle();
         menuLoginFail();
-        int option = Integer.parseInt(scanner.nextLine());
-        switch (option){
-            case 1:
-                userHandle.login(scanner,products,users,oders);
-                break;
-            case 2:
-                userHandle.isFailLogin(scanner,products,users,oders);
-                break;
-            case 3:
-                System.exit(0);
-            default:
-                System.out.println("Chọn lại!!!");
-                selectMenuLoginFail(scanner,products,users,oders);
+        try {
+            int option = Integer.parseInt(scanner.nextLine());
+            switch (option) {
+                case 1:
+                    userHandle.login(scanner, products, users, oders);
+                    break;
+                case 2:
+                    userHandle.isFailLogin(scanner, products, users, oders);
+                    break;
+                case 3:
+                    System.exit(0);
+                default:
+                    System.out.println("Chọn lại!!!");
+                    selectMenuLoginFail(scanner, products, users, oders);
+            }
+        }catch (NumberFormatException e){
+            System.out.println("Bạn phải nhập vào lựa chọn là 1 số nguyên dương 1->3,Nhập Lại");
+            selectMenuLoginFail(scanner, products, users, oders);
         }
     }
 
@@ -250,7 +255,6 @@ public class Menu {
         try {
             menuPO();
             int option = Integer.parseInt(scanner.nextLine());
-
 
         switch (option){
             case 1:
