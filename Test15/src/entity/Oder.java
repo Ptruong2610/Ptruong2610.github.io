@@ -54,10 +54,10 @@ public class Oder {
 
     @Override
     public String toString() {
-        return "Oder{" +
+        return "Order{" +
                 "id=" + id +
                 ", userID=" + userID +
-                ", oderDetails=" + oderDetails +
+                ", orderDetails=" + oderDetails +
                 ", nameCustomer='" + nameCustomer + '\'' +
                 ", address='" + address + '\'' +
                 ", phone=" + phone +
@@ -70,7 +70,7 @@ public class Oder {
 //        for (OderDetail oderdetail:oderDetails
 //             ) {
 //            Product product = handle.checkByProductID(products, oderdetail.getProductID());
-            return "Oder{" +
+            return "Order{" +
                     "id=" + id +
                     ", userID=" + userID +
                     ", nameCustomer='" + nameCustomer + '\'' +

@@ -1,9 +1,6 @@
 package handle;
 
-import entity.Oder;
-import entity.OderDetail;
-import entity.Product;
-import entity.User;
+import entity.*;
 import view.Menu;
 
 import java.util.ArrayList;
@@ -12,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class UserHandle {
     Menu menu = new Menu();
-    public void login(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders){
+    public void login(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders, ArrayList<AdminHistory>adminHistories){
         Menu menu = new Menu();
         System.out.print("username:");
         String userName = scanner.nextLine();
@@ -27,28 +24,28 @@ public class UserHandle {
         }
         if (!check) {
             System.out.println("Kiểm tra lại username");
-            login(scanner,products,users,oders);
+            login(scanner,products,users,oders,adminHistories);
         }
         for (int i = 0; i < users .size(); i++) {
             if (users.get(i).getUserName().equals(userName)&&!users.get(i).getPassWord().equals(password)){
                 System.out.println("Sai password");
-                menu.selectMenuLoginFail(scanner,products,users,oders);
+                menu.selectMenuLoginFail(scanner,products,users,oders,adminHistories);
             }
         }
         for (int i = 0; i < users .size(); i++) {
             if (users.get(i).getUserName().equals(userName)&&users.get(i).getPassWord().equals(password)){
                 if (users.get(i).getRole()==0){
                     System.out.println("Chào mừng " + userName);
-                    menu.selectMenuUserLogin(scanner,products,users,oders,userName);
+                    menu.selectMenuUserLogin(scanner,products,users,oders,userName,adminHistories);
                 }else if (users.get(i).getRole()==1){
                     System.out.println("Chào mừng " + userName);
-                    menu.selectMenuAdminLogin(scanner,products,users,oders);
+                    menu.selectMenuAdminLogin(scanner,products,users,oders,adminHistories);
                 }
             }
         }
     }
 
-    public void signUp(Scanner scanner,ArrayList<Product> products,ArrayList<User> users,ArrayList<Oder> oders){
+    public void signUp(Scanner scanner,ArrayList<Product> products,ArrayList<User> users,ArrayList<Oder> oders,ArrayList<AdminHistory> adminHistories){
         boolean check = false;
         String username;
         String password;
@@ -90,12 +87,12 @@ public class UserHandle {
         User user = new User(username,password,email,0);
         users.add(user);
         System.out.println("Đăng ký tài khoản thành công! Xin mời bạn đăng nhập");
-        login(scanner,products,users,oders);
+        login(scanner,products,users,oders,adminHistories);
 
 
     }
 
-    public void isFailLogin(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders){
+    public void isFailLogin(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders,ArrayList<AdminHistory>adminHistories){
         System.out.println("Mời bàn nhập Email đăng ký tk để kiểm tra:");
         String email = scanner.nextLine();
         for (User user: users
@@ -108,9 +105,9 @@ public class UserHandle {
 
             }else if (!isEmailTaken(users, email)){
                 System.out.println("Email bạn nhập không tồn tại!");
-                isFailLogin(scanner,products,users,oders);
+                isFailLogin(scanner,products,users,oders,adminHistories);
             }
-            menu.selectMenu(scanner,products,users,oders);
+            menu.selectMenu(scanner,products,users,oders,adminHistories);
         }
     }
 

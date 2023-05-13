@@ -48,10 +48,13 @@ public class OderDetail {
     public String printDetailProduct(ArrayList<Product> products){
         ProductHandle handle = new ProductHandle();
         Product product = handle.checkByProductID(products, getProductID());
-        return "OderDetail{" +
-                "id=" + id +
-                ", Product{" + product.getName() +","+ product.getNameBrand()+","+product.getPrice()+'$'+
-                "}, quantity=" + quantity +
-                '}';
+        if (product!=null) {
+            return "OrderDetail{" +
+                    "id=" + id +
+                    ", Product{" + product.getName() + "," + product.getNameBrand() + "," + product.getPrice() + '$' +
+                    "}, quantity=" + quantity +
+                    '}';
+        }
+        return "OrderDetail{Sản phẩm bạn mua đã không còn,Hãy liên hệ adminWeb để được hỗ trợ}";
     }
 }

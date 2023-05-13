@@ -1,9 +1,6 @@
 package view;
 
-import entity.Oder;
-import entity.OderDetail;
-import entity.Product;
-import entity.User;
+import entity.*;
 import handle.OderDetailHandle;
 import handle.OderHandle;
 import handle.ProductHandle;
@@ -42,8 +39,9 @@ public class Menu {
         System.out.println("2 - Cập nhật sản phẩm");
         System.out.println("3 - Xóa sản phẩm");
         System.out.println("4 - Cập nhật trạng thái đơn hàng");
-        System.out.println("5 - Đăng xuất");
-        System.out.println("6 - Thoát");
+        System.out.println("5 - Lịch sử giao dịch");
+        System.out.println("6 - Đăng xuất");
+        System.out.println("7 - Thoát");
     }
     public void menuAdminEditProduct(){
         System.out.println("1 - Cập nhật số lượng tồn kho");
@@ -58,7 +56,7 @@ public class Menu {
     }
 
     /* Đây là menu bắt đầu chương trình */
-    public void selectMenu(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders){
+    public void selectMenu(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders,ArrayList<AdminHistory>adminHistories){
         UserHandle userHandle = new UserHandle();
         ProductHandle productHandle = new ProductHandle();
         productHandle.displayProduct(products);
@@ -67,27 +65,27 @@ public class Menu {
             int option = Integer.parseInt(scanner.nextLine());
             switch (option){
                 case 1:
-                    userHandle.login(scanner,products,users,oders);
+                    userHandle.login(scanner,products,users,oders,adminHistories);
                     break;
                 case 2:
-                    userHandle.signUp(scanner,products,users,oders);
+                    userHandle.signUp(scanner,products,users,oders,adminHistories);
                     break;
                 case 3:
                     System.exit(0);
                     break;
                 default:
                     System.out.println("Lỗi! Bạn hãy lựa chọn bằng cách nhập vào 1 số nguyên dương 1->3 !!!");
-                    selectMenu(scanner,products,users,oders);
+                    selectMenu(scanner,products,users,oders,adminHistories);
                     break;
             }
         }catch (NumberFormatException e){
             System.out.println("Lỗi! Bạn hãy lựa chọn bằng cách nhập vào 1 số nguyên dương 1->3 !!!");
-            selectMenu(scanner, products, users, oders);
+            selectMenu(scanner, products, users, oders,adminHistories);
         }
     }
 
     /* Đây là menu sau khi user đăng nhập thành công */
-    public void selectMenuUserLogin(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders, String username){
+    public void selectMenuUserLogin(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders, String username,ArrayList<AdminHistory>adminHistories){
             UserHandle userHandle = new UserHandle();
             OderHandle oderHandle = new OderHandle();
             ProductHandle productHandle = new ProductHandle();
@@ -99,36 +97,36 @@ public class Menu {
                 switch (option){
                     case 1:
                         productHandle.searchAndDisplayByPriceRange(scanner,products);
-                        oderHandle.selectMenuBuyAfterSearch(scanner, oders, products, users, user, username);
+                        oderHandle.selectMenuBuyAfterSearch(scanner, oders, products, users, user, username,adminHistories);
                         break;
                     case 2:
                         oderHandle.addOder(scanner,oders,products,user);
                         oderHandle.displayOderAfterBuy(oders,products,user);
-                        selectMenuPO(scanner, products, users, oders, username,user);
+                        selectMenuPO(scanner, products, users, oders, username,user,adminHistories);
                         break;
                     case 3:
                         oderHandle.displayOderAfterBuy(oders,products,user);
-                        selectMenuPO(scanner, products, users, oders, username,user);
+                        selectMenuPO(scanner, products, users, oders, username,user,adminHistories);
                         break;
                     case 4:
-                        selectMenu(scanner,products,users,oders);
+                        selectMenu(scanner,products,users,oders,adminHistories);
                         break;
                     case 5:
                         System.exit(0);
                         break;
                     default:
                         System.out.println("Bạn phải nhập vào 1 số nguyên dương 1->5, Chọn Lại!!!");
-                        selectMenuUserLogin(scanner, products, users, oders, username);
+                        selectMenuUserLogin(scanner, products, users, oders, username,adminHistories);
                         break;
                 }
             }catch (NumberFormatException e){
                 System.out.println("Lỗi! Bạn phải nhập vào 1 số nguyên 1->5, Chọn lại ");
-                selectMenuUserLogin(scanner, products, users, oders, username);
+                selectMenuUserLogin(scanner, products, users, oders, username,adminHistories);
             }
     }
 
     /* Đây là menu sau khi admin đăng nhập thành công */
-    public void selectMenuAdminLogin(Scanner scanner,ArrayList<Product> products,ArrayList<User> users,ArrayList<Oder> oders){
+    public void selectMenuAdminLogin(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders, ArrayList<AdminHistory>adminHistories){
         ProductHandle productHandle = new ProductHandle();
         OderHandle oderHandle = new OderHandle();
         menuAdminLogin();
@@ -136,8 +134,8 @@ public class Menu {
         try {
          option = Integer.parseInt(scanner.nextLine());
         }catch (NumberFormatException e){
-            System.out.println("Lỗi! Bạn phải nhập vào 1 số nguyên 1->6, Chọn lại ");
-            selectMenuAdminLogin(scanner, products, users, oders);
+            System.out.println("Lỗi! Bạn phải nhập vào 1 số nguyên 1->7, Chọn lại ");
+            selectMenuAdminLogin(scanner, products, users, oders,adminHistories);
         }
         switch (option){
             case 1:
@@ -150,13 +148,15 @@ public class Menu {
                     products.add(product);
                 }
                 System.out.println("Thêm thành công !");
-                selectMenuAdminLogin(scanner, products, users, oders);
+                productHandle.displayProduct(products);
+                selectMenuAdminLogin(scanner, products, users, oders,adminHistories);
                 break;
             case 2:
                 productHandle.displayProduct(products);
                 productHandle.editProductByID(scanner,products);
                 System.out.println("Cập nhật thành công!");
-                selectMenuAdminLogin(scanner, products, users, oders);
+                productHandle.displayProduct(products);
+                selectMenuAdminLogin(scanner, products, users, oders,adminHistories);
                 break;
             case 3:
                 productHandle.displayProduct(products);
@@ -174,7 +174,7 @@ public class Menu {
                         productHandle.deleteProductById(scanner,products);
                         check3 = false;
                     }else if (chose==2){
-                        selectMenuAdminLogin(scanner, products, users, oders);
+                        selectMenuAdminLogin(scanner, products, users, oders,adminHistories);
                     }else if (chose!=1&&chose!=2){
                         System.out.println("chọn lại!");
                         check3 = true;
@@ -184,13 +184,13 @@ public class Menu {
             case 4:
                 if (oders.size()==0){
                     System.out.println("Web của bạn chưa phát sinh đơn hàng nào!");
-                    selectMenuAdminLogin(scanner, products, users, oders);
+                    selectMenuAdminLogin(scanner, products, users, oders,adminHistories);
                 } else {
                     oderHandle.displayOder(oders);
-                    oderHandle.updateStatusOderById(scanner,oders);
+                    oderHandle.updateStatusOderById(scanner,oders,adminHistories);
                     boolean check4 = false;
                     do {
-                        oderHandle.displayOder(oders);
+//                        oderHandle.displayOder(oders);
                         System.out.println("Bạn có muốn tiếp tục cập nhật trạng thái đơn hàng không?");
                         System.out.println("1 - Có");
                         System.out.println("2 - Không");
@@ -198,10 +198,10 @@ public class Menu {
                         int chose = productHandle.isValidInput(scanner);
                         if (chose==1){
                             oderHandle.displayOder(oders);
-                            oderHandle.updateStatusOderById(scanner,oders);
+                            oderHandle.updateStatusOderById(scanner,oders,adminHistories);
                             check4 = false;
                         }else if (chose==2){
-                            selectMenuAdminLogin(scanner, products, users, oders);
+                            selectMenuAdminLogin(scanner, products, users, oders,adminHistories);
                         }else if (chose!=1&&chose!=2){
                             System.out.println("chọn lại!");
                             check4 = true;
@@ -210,21 +210,33 @@ public class Menu {
                 }
                 break;
             case 5:
-                selectMenu(scanner,products,users,oders);
+                if (adminHistories.size()==0) {
+                    System.out.println("Bạn chưa có lịch sử giao dịch nào");
+                    selectMenuAdminLogin(scanner, products, users, oders, adminHistories);
+                }else {
+                    for (AdminHistory adminHistorie : adminHistories
+                    ) {
+                        System.out.println(adminHistorie);
+                    }
+                }
+                selectMenuAdminLogin(scanner,products,users,oders,adminHistories);
                 break;
             case 6:
+                selectMenu(scanner,products,users,oders,adminHistories);
+                break;
+            case 7:
                 System.exit(0);
                 break;
             default:
-                System.out.println("Lỗi! Bạn phải nhập vào 1 số nguyên 1->6, Chọn lại ");
-                selectMenuAdminLogin(scanner, products, users, oders);
+                System.out.println("Lỗi! Bạn phải nhập vào 1 số nguyên 1->7, Chọn lại ");
+                selectMenuAdminLogin(scanner, products, users, oders,adminHistories);
                 break;
         }
 
     }
 
     /* Đây là menu sau khi đăng nhập thất bại */
-    public void selectMenuLoginFail(Scanner scanner,ArrayList<Product> products,ArrayList<User> users,ArrayList<Oder> oders ){
+    public void selectMenuLoginFail(Scanner scanner,ArrayList<Product> products,ArrayList<User> users,ArrayList<Oder> oders,ArrayList<AdminHistory>adminHistories ){
 
         UserHandle userHandle = new UserHandle();
         menuLoginFail();
@@ -232,25 +244,25 @@ public class Menu {
             int option = Integer.parseInt(scanner.nextLine());
             switch (option) {
                 case 1:
-                    userHandle.login(scanner, products, users, oders);
+                    userHandle.login(scanner, products, users, oders,adminHistories);
                     break;
                 case 2:
-                    userHandle.isFailLogin(scanner, products, users, oders);
+                    userHandle.isFailLogin(scanner, products, users, oders,adminHistories);
                     break;
                 case 3:
                     System.exit(0);
                 default:
                     System.out.println("Chọn lại!!!");
-                    selectMenuLoginFail(scanner, products, users, oders);
+                    selectMenuLoginFail(scanner, products, users, oders,adminHistories);
             }
         }catch (NumberFormatException e){
             System.out.println("Bạn phải nhập vào lựa chọn là 1 số nguyên dương 1->3,Nhập Lại");
-            selectMenuLoginFail(scanner, products, users, oders);
+            selectMenuLoginFail(scanner, products, users, oders,adminHistories);
         }
     }
 
     /* Đây là menu sau khi mua hàng thành công */
-    public void selectMenuPO(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders, String username,User user){
+    public void selectMenuPO(Scanner scanner, ArrayList<Product> products, ArrayList<User> users, ArrayList<Oder> oders, String username,User user,ArrayList<AdminHistory>adminHistories){
         OderHandle oderHandle = new OderHandle();
         try {
             menuPO();
@@ -259,24 +271,22 @@ public class Menu {
         switch (option){
             case 1:
             case 3:
-                selectMenuUserLogin(scanner, products, users, oders, username);
+                selectMenuUserLogin(scanner, products, users, oders, username,adminHistories);
 
                 break;
             case 2:
-                oderHandle.cancelOder(scanner,oders,products);
+                oderHandle.cancelOder(scanner,oders,products,user);
                 oderHandle.displayOderAfterBuy(oders,products,user);
-                selectMenuPO(scanner, products, users, oders, username,user);
+                selectMenuPO(scanner, products, users, oders, username,user,adminHistories);
                 break;
-            case 4:
-                System.exit(0);
             default:
                 System.out.println("Chọn lại!!!");
-                selectMenuPO(scanner, products, users, oders, username, user);
+                selectMenuPO(scanner, products, users, oders, username, user,adminHistories);
 
         }
         }catch (NumberFormatException e){
             System.out.println("Bạn hãy lựa chọn bằng cách nhập vào 1 số nguyên dương 1->3");
-            selectMenuPO(scanner, products, users, oders, username, user);
+            selectMenuPO(scanner, products, users, oders, username, user,adminHistories);
         }
     }
 
