@@ -209,6 +209,7 @@ public class OderHandle {
             System.out.println(oder);
         }
     }
+    /* Đây là hàm hiển thị menu sau khi nhập id cập nhật trạng thái đơn hàng */
     public void selecMenuUpdateStatus(Scanner scanner,Oder oder,ArrayList<AdminHistory> adminHistories){
         ProductHandle productHandle = new ProductHandle();
         System.out.println("Mời bạn chọn trạng thái cho đơn hàng");

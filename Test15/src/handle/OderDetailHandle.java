@@ -10,39 +10,7 @@ import java.util.Scanner;
 public class OderDetailHandle {
     ProductHandle productHandle = new ProductHandle();
     public OderDetail addOderDetail(Scanner scanner,ArrayList<Product> products){
-//        boolean check = false;
-//        int productID;
-//        int quannity;
-//        do {
-//            System.out.println("Mời bạn nhập id sản phẩm:");
-//            productID = Integer.parseInt(scanner.nextLine());
-//            for (Product product: products
-//            ) {
-//                if (product.getId()==productID)
-//                    check = true;
-//            }
-//            if (!check){
-//                System.out.println("id sản phẩm nhập không đúng! Nhập lại");
-//            }
-//        }while (!check);
-//        Product product = productHandle.checkByProductID(products,productID);
-//        do {
-//            System.out.println("Mời bạn nhập số lượng muốn mua:");
-//            quannity = Integer.parseInt(scanner.nextLine());
-//            if (product!=null&&product.getNumber()>=quannity){
-//                check = true;
-//
-//            }else if (product!=null&&product.getNumber()==0){
-//                System.out.println("Sản phẩm này hiện đã hết vui lòng chọn sản phẩm khac!");
-//                addOderDetail(scanner, products);
-//            }else if (product!=null&&product.getNumber()<quannity) {
-//                System.out.println("Số lượng bạn nhập hiện không đủ! ,Nhập lại");
-//                check = false;
-//            }
-//        }while (!check);
-//        OderDetail oderDetail = new  OderDetail(productID,quannity);
-//        setNumberAfterAdd(products,productID,quannity);
-//        return oderDetail;
+
         boolean check = false;
         int productID =0;
         int quannity = 0 ;
@@ -96,9 +64,9 @@ public class OderDetailHandle {
 
     /* Đây là hàm thay đổi số lượng kho sau khi mua hàng thành công */
     public void setNumberAfterAdd(ArrayList<Product> products,int idProduct,int quanity){
-        for (int i = 0; i <products.size() ; i++) {
-            if (products.get(i).getId()==idProduct){
-                products.get(i).setNumber(products.get(i).getNumber()-quanity);
+        for (Product product : products) {
+            if (product.getId() == idProduct) {
+                product.setNumber(product.getNumber() - quanity);
             }
         }
     }
