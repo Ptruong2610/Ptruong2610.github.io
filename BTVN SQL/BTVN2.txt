@@ -1,0 +1,61 @@
+CREATE DATABASE quanlysinhdiem;
+
+USE quanlysinhdiem;
+CREATE TABLE tbl_sinhvien (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten VARCHAR(50),
+    tuoi INT,
+    gioiTinh VARCHAR(10),
+    maLop VARCHAR(20)
+);
+
+CREATE TABLE tbl_giaovien (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ten VARCHAR(50),
+    tuoi INT,
+    gioiTinh VARCHAR(10),
+    soNamKN INT
+);
+
+CREATE TABLE tbl_diem (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    maSV INT,
+    diemToan FLOAT,
+    diemLy FLOAT,
+    diemHoa FLOAT
+);
+INSERT INTO tbl_sinhvien (ten, tuoi, gioiTinh, maLop) VALUES 
+('Nguyen Van A', 20, 'Nam', 'Lop 1A'),
+('Tran Thi B', 19, 'Nu', 'Lop 1B'),
+('Le Tuan C', 21, 'Nam', 'Lop 1A'),
+('Pham Thi D', 20, 'Nu', 'Lop 1C'),
+('Vo Van E', 22, 'Nam', 'Lop 1B'),
+('Dang Thi F', 18, 'Nu', 'Lop 1A'),
+('Hoang Van G', 19, 'Nam', 'Lop 1C'),
+('Ngo Thi H', 21, 'Nu', 'Lop 1B'),
+('Bui Van I', 20, 'Nam', 'Lop 1A'),
+('Do Thi K', 19, 'Nu', 'Lop 1C');
+
+INSERT INTO tbl_giaovien (ten, tuoi, gioiTinh, soNamKN) VALUES 
+('Nguyen Van X', 35, 'Nam', 5),
+('Tran Thi Y', 30, 'Nu', 3),
+('Le Tuan Z', 40, 'Nam', 8),
+('Pham Thi M', 38, 'Nu', 6),
+('Vo Van N', 42, 'Nam', 10),
+('Dang Thi P', 28, 'Nu', 2),
+('Hoang Van Q', 29, 'Nam', 4),
+('Ngo Thi R', 33, 'Nu', 7),
+('Bui Van S', 31, 'Nam', 6),
+('Do Thi T', 27, 'Nu', 1);
+
+INSERT INTO tbl_diem (maSV, diemToan, diemLy, diemHoa) VALUES 
+(1, 8.5, 7.5, 9.0),
+(2, 9.0, 8.0, 7.5),
+(3, 7.0, 6.5, 8.5),
+(4, 8.5, 9.0, 8.0),
+(5, 7.5, 8.0, 9.0),
+(6, 8.0, 7.5, 9.5),
+(7, 9.0, 8.5, 7.0),
+(8, 6.5, 7.0, 8.5),
+(9, 8.0, 9.0, 7.5),
+(10, 7.5, 8.5, 8.0);
