@@ -1,0 +1,20 @@
+1. SELECT tbl_giangvien.maGV,tbl_giangvien.tenGV,tbl_khoa.tenKhoa FROM tbl_giangvien JOIN tbl_khoa ON tbl_giangvien.maKhoa = tbl_khoa.maKhoa;
+
+2. SELECT tbl_giangvien.maGV,tbl_giangvien.tenGV,tbl_khoa.tenKhoa FROM tbl_giangvien JOIN tbl_khoa ON tbl_giangvien.maKhoa = tbl_khoa.maKhoa WHERE tbl_khoa.tenKhoa = 'Khoa Kinh Tế';
+3. SELECT COUNT(*) FROM tbl_sinhvien  JOIN tbl_khoa ON tbl_sinhvien.maKhoa = tbl_khoa.maKhoa WHERE tbl_khoa.tenKhoa = 'Khoa Công nghệ thông tin';
+
+4. SELECT tbl_sinhvien.maSV,tbl_sinhvien.tenSV,tbl_sinhvien.namSinh FROM tbl_sinhvien JOIN tbl_khoa ON tbl_sinhvien.maKhoa = tbl_khoa.maKhoa WHERE tbl_khoa.tenKhoa='Khoa Kinh Tế';
+
+5. SELECT COUNT(*) FROM tbl_giangvien JOIN tbl_khoa ON tbl_giangvien.maKhoa = tbl_khoa.maKhoa WHERE tbl_khoa.tenKhoa = 'Khoa Công nghệ thông tin';
+
+6. SELECT *FROM tbl_sinhvien WHERE tbl_sinhvien.maSV NOT IN(SELECT tbl_huongdan.maSV FROM tbl_huongdan);
+
+7. SELECT tbl_khoa.maKhoa, tbl_khoa.tenKhoa, COUNT(tbl_giangvien.maGV) AS soGiangVien
+FROM tbl_khoa
+LEFT JOIN tbl_giangvien ON tbl_khoa.maKhoa = tbl_giangvien.maKhoa
+GROUP BY tbl_khoa.maKhoa, tbl_khoa.tenKhoa;
+
+8. SELECT tbl_khoa.sdt
+FROM tbl_sinhvien
+JOIN tbl_khoa ON tbl_sinhvien.maKhoa = tbl_khoa.maKhoa
+WHERE tbl_sinhvien.tenSV = 'Hoàng Văn Tùng';
