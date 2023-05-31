@@ -1,0 +1,70 @@
+Đề tài : Quản lý thư viện :
+CREATE TABLE tbl_Sach (
+  MaSach INT PRIMARY KEY,
+  TenSach VARCHAR(255) NOT NULL,
+  TacGia VARCHAR(255) NOT NULL,
+  NhaXuatBan VARCHAR(255) NOT NULL,
+  NamXuatBan INT NOT NULL,
+  SoTrang INT NOT NULL,
+  SoLuongTonKho INT NOT NULL
+);
+
+CREATE TABLE tbl_TheLoaiSach (
+  MaTheLoai INT PRIMARY KEY,
+  TenTheLoai VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE tbl_Sach_TheLoaiSach (
+  MaSach INT NOT NULL,
+  MaTheLoai INT NOT NULL,
+  PRIMARY KEY (MaSach, MaTheLoai),
+  FOREIGN KEY (MaSach) REFERENCES tbl_Sach(MaSach),
+  FOREIGN KEY (MaTheLoai) REFERENCES tbl_TheLoaiSach(MaTheLoai)
+);
+
+CREATE TABLE tbl_TacGia (
+  MaTacGia INT PRIMARY KEY,
+  TenTacGia VARCHAR(255) NOT NULL);
+
+CREATE TABLE tbl_NhaXuatBan (
+  MaNhaXuatBan INT PRIMARY KEY,
+  TenNhaXuatBan VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE tbl_PhieuMuon (
+  MaPhieuMuon INT PRIMARY KEY,
+  MaDocGia INT NOT NULL,
+  NgayMuon DATE NOT NULL,
+  NgayHenTra DATE NOT NULL,
+  NgayTra DATE,
+  FOREIGN KEY (MaDocGia) REFERENCES tbl_DocGia(MaDocGia)
+);
+
+CREATE TABLE tbl_DocGia (
+  MaDocGia INT PRIMARY KEY,
+  TenDocGia VARCHAR(255) NOT NULL,
+  DiaChi VARCHAR(255) NOT NULL,
+  SoDienThoai VARCHAR(20) NOT NULL,
+  Email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE tbl_ChiTietPhieuMuon (
+  MaPhieuMuon INT NOT NULL,
+  MaSach INT NOT NULL,
+  SoLuongMuon INT NOT NULL,
+  PRIMARY KEY (MaPhieuMuon, MaSach),
+  FOREIGN KEY (MaPhieuMuon) REFERENCES tbl_PhieuMuon(MaPhieuMuon),
+  FOREIGN KEY (MaSach) REFERENCES tbl_Sach(MaSach)
+);
+
+1-Bảng "tbl_Sach" có quan hệ nhiều-nhiều với bảng "tbl_TheLoaiSach" thông qua bảng liên kết "tbl_Sach_TheLoaiSach". Một cuốn sách có thể thuộc nhiều thể loại sách khác nhau và một thể loại sách có thể có nhiều cuốn sách khác nhau.
+
+2-Bảng "tbl_Sach" có quan hệ một-nhiều với bảng "tbl_TacGia". Một tác giả có thể viết nhiều cuốn sách khác nhau, nhưng một cuốn sách chỉ thuộc về một tác giả.
+
+3-Bảng "tbl_Sach" có quan hệ một-nhiều với bảng "tbl_NhaXuatBan". Một nhà xuất bản có thể xuất bản nhiều cuốn sách khác nhau, nhưng một cuốn sách chỉ do một nhà xuất bản xuất bản.
+
+4-Bảng "tbl_PhieuMuon" có quan hệ một-nhiều với bảng "tbl_DocGia". Một đọc giả có thể mượn nhiều cuốn sách khác nhau, nhưng một phiếu mượn chỉ thuộc về một đọc giả.
+
+5-Bảng "tbl_PhieuMuon" có quan hệ một-nhiều với bảng "tbl_ChiTietPhieuMuon". Một phiếu mượn có thể có nhiều chi tiết mượn khác nhau, nhưng một chi tiết mượn chỉ thuộc về một phiếu mượn.
+
+6-Bảng "tbl_ChiTietPhieuMuon" có quan hệ nhiều-nhiều với bảng "tbl_Sach". Một cuốn sách có thể được mượn bởi nhiều đọc giả khác nhau và một đọc giả có thể mượn nhiều cuốn sách khác nhau.

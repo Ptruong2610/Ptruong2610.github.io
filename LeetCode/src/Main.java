@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int[] nums = {2,5,1,3,4,7};
+        int[] nums = {2,5,1,3,4,7,12,235,1425,234568};
         int target = 9;
         int[] result = {0, 1};
 
@@ -34,6 +34,9 @@ public class Main {
         int n = Integer.parseInt(scanner.nextLine());
         int[] out = shuffle(nums,n);
         System.out.println(Arrays.toString(out));
+
+        int summ = findNumbers(nums);
+        System.out.println(summ);
 
     }
 
@@ -119,4 +122,18 @@ public class Main {
         }
         return out;
     }
+
+    public  static  int findNumbers(int[] nums) {
+        int count =0;
+        for (int n :nums
+             ) {
+            //            String str = Integer.toString(nums[i]);
+            String str = n + "";
+            int length = str.length();
+            if (length%2==0){
+                count++;
+            }
+        }
+        return  count;
+        }
 }
