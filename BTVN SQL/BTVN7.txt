@@ -34,7 +34,7 @@ create table tbl_viTriCongViec(
 
 create table tbl_kieuNhanSu(
 	id int primary key auto_increment,
-    ten varchar(50) not null,
+    ten varchar(50) not null, // TOÀN THỜI GIAN, BÁN THỜI GIAN.
     create_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp default null
