@@ -4,3 +4,5 @@
 342. https://leetcode.com/problems/power-of-four/submissions/972683810/
 394. https://leetcode.com/problems/decode-string/submissions/972724460/
 1823 https://leetcode.com/problems/find-the-winner-of-the-circular-game/submissions/972731811/
+
+2 BÀI CUỐI KHÓ QUÁ NÊN E ĐI THAM KHẢO CÒ GÌ BUỔI MAI ĐI HỌC THẦY HƯỚNG DẪN Ạ.
