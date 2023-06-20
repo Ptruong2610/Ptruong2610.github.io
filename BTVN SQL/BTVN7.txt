@@ -6,65 +6,65 @@ create table tbl_trangthai(
 	id int primary key auto_increment,
 	keyy varchar(20) not null,
 	valuee varchar(50) not null,
-	create_at timestamp not null default current_timestamp,
+	created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null
 );
-create table tbl_chiNhanh(
+create table tbl_chinhanh(
 	id int primary key auto_increment,
     diaChi varchar(255) not null,
     sdt varchar(15) not null,
-    trangthai_id INT not null,
-    create_at timestamp not null default current_timestamp,
+    trangThai_id INT not null,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-FOREIGN KEY (trangthai_id) REFERENCES tbl_trangthai(id)
+FOREIGN KEY (trangThai_id) REFERENCES tbl_trangthai(id)
 );
 
-create table tbl_boPhan(
+create table tbl_bophan(
 	id int primary key auto_increment,
     ten varchar(100) not null,
     sdt varchar(15) not null,
     mota text,
-    trangthai_id INT not null,
-    create_at timestamp not null default current_timestamp,
+    trangThai_id INT not null,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-FOREIGN KEY (trangthai_id) REFERENCES tbl_trangthai(id)
+FOREIGN KEY (trangThai_id) REFERENCES tbl_trangthai(id)
 );
 
-create table tbl_viTriCongViec(
+create table tbl_vitricongviec(
 	id int primary key auto_increment,
     boPhan_id int not null,
     ten varchar(100) not null,
     trangthai_id INT not null,
-    create_at timestamp not null default current_timestamp,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-    constraint fk_viTri_boPhan foreign key (boPhan_id) references tbl_boPhan(id),
-FOREIGN KEY (trangthai_id) REFERENCES tbl_trangthai(id)
+    constraint fk_vitricongviec_bophan foreign key (boPhan_id) references tbl_bophan(id),
+FOREIGN KEY (trangThai_id) REFERENCES tbl_trangthai(id)
 );
 
-create table tbl_kieuNhanSu(
+create table tbl_kieunhanSu(
 	id int primary key auto_increment,
     ten varchar(50) not null, 
-    trangthai_id INT not null,
-    create_at timestamp not null default current_timestamp,
+    trangThai_id INT not null,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-    FOREIGN KEY (trangthai_id) REFERENCES tbl_trangthai(id)
+    FOREIGN KEY (trangThai_id) REFERENCES tbl_trangthai(id)
 
 );
 
-create table tbl_gioiTinh(
+create table tbl_gioitinh(
 	id int primary key auto_increment,
     ten varchar(30) not null,
-    create_at timestamp not null default current_timestamp,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null
 );
 
-create table tbl_nhanVien(
+create table tbl_nhanvien(
 	id int primary key auto_increment,
     ten varchar(50) not null,
     gioiTinh_id int not null,
@@ -74,18 +74,20 @@ create table tbl_nhanVien(
     cccd varchar(15) not null unique,
     hinhAnh varchar(255) not null,
     chiNhanh_id int not null,
-    vitri_id int not null,
+    viTri_id int not null,
     kieuNhanSu_id int not null,
-    create_at timestamp not null default current_timestamp,
+    trangThai_id INT not null,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-    constraint fk_nhanVien_gioiTinh foreign key (gioiTinh_id) references tbl_gioiTinh(id),
-    constraint fk_nhanVien_chiNhanh foreign key (chiNhanh_id) references tbl_chiNhanh(id),
-    constraint fk_nhanVien_vitri foreign key (vitri_id) references tbl_viTriCongViec(id),
-    constraint fk_nhanVien_kieuNhanSu foreign key (kieuNhanSu_id) references tbl_kieuNhanSu(id)
+    constraint fk_nhanvien_gioitinh foreign key (gioiTinh_id) references tbl_gioitinh(id),
+    constraint fk_nhanvien_chinhanh foreign key (chiNhanh_id) references tbl_chinhanh(id),
+    constraint fk_nhanvien_vitricongviec foreign key (viTri_id) references tbl_vitricongviec(id),
+    constraint fk_nhanvien_kieunhansu foreign key (kieuNhanSu_id) references tbl_kieunhansu(id),
+    FOREIGN KEY (trangThai_id) REFERENCES tbl_trangthai(id)
 );
 
-create table tbl_hopDong(
+create table tbl_hopdong(
 	id int primary key auto_increment,
     maHopDong varchar(20) not null,
     nhanVien_id int not null,
@@ -94,25 +96,25 @@ create table tbl_hopDong(
     noiDung text not null,
     ngayKy date not null,
     lanKy int not null,
-    trangthai_id INT,
-    create_at timestamp not null default current_timestamp,
+    trangThai_id INT,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-    constraint fk_hopDong_nhanVien foreign key (nhanVien_id) references tbl_nhanVien(id),
-FOREIGN KEY (trangthai_id) REFERENCES tbl_trangthai(id)
+    constraint fk_hopdong_nhanvien foreign key (nhanVien_id) references tbl_nhanvien(id),
+FOREIGN KEY (trangThai_id) REFERENCES tbl_trangthai(id)
 );
 
-create table tbl_trinhDo(
+create table tbl_trinhdo(
 	id int primary key auto_increment,
     nhanVien_id int not null,
     hocVan varchar(50) not null,
     truongHoc varchar(100) not null,
     chuyenNganh varchar(50) not null,
     namTotNghiep varchar(4) not null,
-    create_at timestamp not null default current_timestamp,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-    constraint fk_trinhDo_nhanVien foreign key (nhanVien_id) references tbl_nhanVien(id)
+    constraint fk_trinhdo_nhanvien foreign key (nhanVien_id) references tbl_nhanVien(id)
 );
 
 create table tbl_baoHiem(
@@ -122,46 +124,45 @@ create table tbl_baoHiem(
     ngayCap date not null,
     noiCap varchar(255) not null,
     noiKhamBenh varchar(255) not null,
-    create_at timestamp not null default current_timestamp,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-	constraint fk_baoHiem_nhanVien foreign key (nhanVien_id) references tbl_nhanVien(id)
+	constraint fk_baohiem_nhanvien foreign key (nhanVien_id) references tbl_nhanvien(id)
 );
 
-create table ttbl_bangCong(
+create table ttbl_bangcong(
 	id int primary key auto_increment,
     nhanVien_id int not null,
     ngayLamViec date not null,
     gioVao time not null,
     gioRa time not null,
-    create_at timestamp not null default current_timestamp,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-    constraint fk_bangCong_nhanVien foreign key (nhanVien_id) references tbl_nhanVien(id)
+    constraint fk_bangcong_nhanvien foreign key (nhanVien_id) references tbl_nhanvien(id)
 );
 
-create table tbl_khenThuongKyLuat(
+create table tbl_khenthuongkyluat(
 	id int primary key auto_increment,
     loai varchar(50) not null,
     nhanVien_id int not null,
     noiDung text,
     ngay date not null,
-    trangthai_id INT not null,
-    create_at timestamp not null default current_timestamp,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-    constraint fk_khenThuongKyLuat_nhanVien foreign key (nhanVien_id) references tbl_nhanVien(id)
+    constraint fk_khenthuongkyluat_nhanvien foreign key (nhanVien_id) references tbl_nhanvien(id)
 );
 
-create table tbl_tangCa(
+create table tbl_tangca(
 	id int primary key auto_increment,
     nhanVien_id int not null,
     ngay date not null,
     soGio float not null,
-    create_at timestamp not null default current_timestamp,
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-    constraint fk_tangCa_nhanVien foreign key (nhanVien_id) references tbl_nhanVien(id)
+    constraint fk_tangca_nhanvien foreign key (nhanVien_id) references tbl_nhanvien(id)
 );
 
 create table tbl_bangLuong(
@@ -176,12 +177,12 @@ create table tbl_bangLuong(
     kyLuat float not null,
     thue float not null,
     luongThucNhan float not null,
-    trangthai_id INT not null, 
-    create_at timestamp not null default current_timestamp,
+    trangThai_id INT not null, 
+    created_at timestamp not null default current_timestamp,
     update_at timestamp not null default current_timestamp on update current_timestamp,
 	delete_at timestamp null default null,
-    constraint fk_bangLuong_nhanVien foreign key (nhanVien_id) references tbl_nhanVien(id),
-FOREIGN KEY (trangthai_id) REFERENCES tbl_trangthai(id)
+    constraint fk_bangluong_nhanvien foreign key (nhanVien_id) references tbl_nhanVien(id),
+FOREIGN KEY (trangThai_id) REFERENCES tbl_trangthai(id)
 );
 
 
