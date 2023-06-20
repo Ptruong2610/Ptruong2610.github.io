@@ -1,6 +1,8 @@
 
 Các bảng database trong hệ thống Techmaster như sau:
 
+Bảng "status": lưu thông tin về trạng thái của các bảng trong hệ thông , bao gồm cột "id" là khóa chính, cột "keyy","valuee" lưu trữ thông tin lưu từ khóa liê quan đến các bảng tương ứng thông tin trang thái của bảng đó.
+
 Bảng "users": lưu thông tin về tất cả người dùng trong hệ thống, bao gồm cột "id" là khóa chính, cột "username", "password" và "email" lưu trữ thông tin đăng nhập và cột "role" để phân biệt giáo viên và học viên.
 
 Bảng "admins": lưu trữ thông tin về các quản trị viên, bao gồm cột "id" là khóa chính và cột "user_id" là khóa ngoại tham chiếu đến bảng "users".
