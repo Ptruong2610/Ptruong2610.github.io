@@ -1,0 +1,314 @@
+Sử dụng db diagram hoặc phpmyadmin để vẽ bảng sql mô tả hệ thống techmaster bao gồm các chức năng:
+
+Đăng ký học viên và giáo viên (sinh viên và giáo viên)
+Quản lý giáo viên và học viên (admin)
+Quản lý khoá học (chức năng của admin)
+Quản lý lớp học (chức năng của admin)
+Thêm sinh viên vào lớp học (admin thêm sinh viên vào)
+Thêm bài giảng cho lớp (chức năng của giáo viên, Phần mở rộng: Sẽ có nhiều bài giảng trong 1 lớp)
+Điểm danh học viên (chức năng của giáo viên)
+Chấm điểm học viên (chức năng của giáo viên)
+Có thể bổ sung chức năng tuỳ ý.
+
+create database techmaster;
+
+use techmaster;
+
+
+create table status(
+  id int primary key auto_increment,
+  keyy varchar(20) not null,
+  valuee varchar(50) not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null
+);
+CREATE TABLE users (
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  role VARCHAR(255) NOT NULL,
+  status_id int not null,
+  PRIMARY KEY (id),
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  constraint fk_users_status foreign key(status_id) references status(id)
+);
+
+CREATE TABLE admins (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_admins_users FOREIGN KEY (user_id) REFERENCES users(id),
+  constraint fk_admins_status foreign key(status_id) references status(id)
+);
+
+CREATE TABLE teachers (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  full_name VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_teachers_users FOREIGN KEY (user_id) REFERENCES users(id),
+  constraint fk_teachers_status foreign key(status_id) references status(id)
+);
+
+CREATE TABLE students (
+  id INT NOT NULL AUTO_INCREMENT,
+  user_id INT NOT NULL,
+  full_name VARCHAR(255) NOT NULL,
+  phone_number VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_students_users FOREIGN KEY (user_id) REFERENCES users(id),
+  constraint fk_students_status foreign key(status_id) references status(id)
+
+);
+
+CREATE TABLE courses (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_courses_status foreign key(status_id) references status(id)
+);
+
+CREATE TABLE courses_teachers (
+  id INT NOT NULL AUTO_INCREMENT,
+  course_id INT NOT NULL,
+  teacher_id INT NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_courses_teachers_courses FOREIGN KEY (course_id) REFERENCES courses(id),
+  constraint fk_courses_teachers_teachers FOREIGN KEY (teacher_id) REFERENCES teachers(id),
+  constraint fk_courses_teachers_status foreign key(status_id) references status(id)
+);
+
+CREATE TABLE classes (
+  id INT NOT NULL AUTO_INCREMENT,
+  course_id INT NOT NULL,
+  teacher_id INT NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_classes_course FOREIGN KEY (course_id) REFERENCES courses(id),
+  constraint fk_classes_teachers FOREIGN KEY (teacher_id) REFERENCES teachers(id),
+  constraint fk_classes_status foreign key(status_id) references status(id)
+);
+
+CREATE TABLE class_students (
+  id INT NOT NULL AUTO_INCREMENT,
+  class_id INT NOT NULL,
+  student_id INT NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_class_students_classes FOREIGN KEY (class_id) REFERENCES classes(id),
+  constraint fk_class_students_students FOREIGN KEY (student_id) REFERENCES students(id),
+  constraint fk_class_students_status foreign key(status_id) references status(id)
+);
+
+CREATE TABLE lectures (
+  id INT NOT NULL AUTO_INCREMENT,
+  class_id INT NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_lectures_classes FOREIGN KEY (class_id) REFERENCES classes(id),
+  constraint fk_lectures_status foreign key(status_id) references status(id)
+);
+
+CREATE TABLE attendances (
+  id INT NOT NULL AUTO_INCREMENT,
+  class_id INT NOT NULL,
+  student_id INT NOT NULL,
+  lecture_id INT NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_attendances_classes FOREIGN KEY (class_id) REFERENCES classes(id),
+  constraint fk_attendances_students FOREIGN KEY (student_id) REFERENCES students(id),
+  constraint fk_attendances_lectures FOREIGN KEY (lecture_id) REFERENCES lectures(id),
+  constraint fk_attendances_status foreign key(status_id) references status(id)
+);
+
+CREATE TABLE grades (
+  id INT NOT NULL AUTO_INCREMENT,
+  class_id INT NOT NULL,
+  student_id INT NOT NULL,
+  lecture_id INT NOT NULL,
+  grade FLOAT NOT NULL,
+  status_id int not null,
+  created_at timestamp not null default current_timestamp,
+  updated_at timestamp not null default current_timestamp on update current_timestamp,
+  deleted_at timestamp null default null,
+  PRIMARY KEY (id),
+  constraint fk_grades_classes FOREIGN KEY (class_id) REFERENCES classes(id),
+  constraint fk_grades_students FOREIGN KEY (student_id) REFERENCES students(id),
+  constraint fk_grades_lectures FOREIGN KEY (lecture_id) REFERENCES lectures(id),
+  constraint fk_grades_status foreign key(status_id) references status(id)
+);
+
+INSERT INTO status (keyy, valuee)
+VALUES 
+('user', 'Hoạt động'),
+('user', 'Đang ẩn'),
+('user', 'Đã xóa'),
+('courses', 'Đang mở'),
+('courses', 'Đã kết thúc'),
+('courses_teachers', 'Đang dạy'),
+('courses_teachers', 'Đã kết thúc giảng dạy'),
+('classes', 'Đang mở'),
+('classes', 'Đã kết thúc'),
+('class_students', 'Đang học'),
+('class_students', 'Đã nghỉ học'),
+('class_students', 'Bảo lưu'),
+('lectures', 'Đang mở'),
+('lectures', 'Đang đóng'),
+('attendances', 'Đi học'),
+('attendances', 'Nghỉ học'),
+('grades', 'Đã chấm'),
+('grades', 'chưa chấm');
+
+INSERT INTO users (username, password, email, role, status_id) VALUES 
+('user01', 'password01', 'user01@example.com', 'student', 1),
+('user02', 'password02', 'user02@example.com', 'teacher', 1),
+('user03', 'password03', 'user03@example.com', 'admin', 3),
+('user04', 'password04', 'user04@example.com', 'student', 1),
+('user05', 'password05', 'user05@example.com', 'teacher', 2),
+('user06', 'password06', 'user06@example.com', 'admin', 2),
+('user07', 'password07', 'user07@example.com', 'student', 3),
+('user08', 'password08', 'user08@example.com', 'teacher', 3),
+('user09', 'password09', 'user09@example.com', 'admin', 1),
+('user10', 'password10', 'user10@example.com', 'student', 1),
+('user11', 'password11', 'user11@example.com', 'student', 1),
+('user12', 'password12', 'user12@example.com', 'student', 1),
+('user13', 'password13', 'user13@example.com', 'student', 1),
+('user14', 'password14', 'user14@example.com', 'teacher', 1),
+('user15', 'password15', 'user15@example.com', 'teacher', 1),
+('user16', '6password16', 'user16@example.com', 'teacher', 1);
+
+INSERT INTO admins (user_id, status_id) VALUES 
+(3, 1),
+(6, 1),
+(9, 2);
+INSERT INTO teachers (user_id, full_name, phone_number, address, status_id) VALUES 
+(14, 'Nguyễn Văn A', '0987654321', 'Hà Nội', 1),
+(15, 'Trần Thị B', '0987654322', 'Hải Phòng', 1),
+(16, 'Lê Văn C', '0987654323', 'Đà Nẵng', 2),
+(8, 'Nguyễn Văn A', '0987654321', 'Hà Nội', 2),
+(5, 'Trần Thị B', '0987654322', 'Hải Phòng', 3),
+(2, 'Lê Văn C', '0987654323', 'Đà Nẵng', 3);
+
+INSERT INTO students (user_id, full_name, phone_number, address, status_id) VALUES 
+(10, 'Phạm Thị D', '0987654324', 'TP. HCM', 1),
+(11, 'Hoàng Văn E', '0987654325', 'Hà Nội', 1),
+(12, 'Trần Thị F', '0987654326', 'Hải Phòng', 1),
+(13, 'Phạm Thị D', '0987654324', 'TP. HCM', 1),
+(4, 'Hoàng Văn E', '0987654325', 'Hà Nội', 1),
+(7, 'Trần Thị F', '0987654326', 'Hải Phòng', 1),
+(1, 'Phạm Thị D', '0987654324', 'TP. HCM', 2);
+
+INSERT INTO courses (name, description, status_id) VALUES
+  ('Introduction to Programming', 'An introductory course on programming concepts and logic', 4),
+  ('Database Design', 'A course on designing and implementing relational databases', 4),
+  ('Web Development', 'A course on building dynamic web applications using modern web technologies', 4),
+  ('Data Structures and Algorithms', 'A course on advanced data structures and algorithm design', 4),
+  ('Operating Systems', 'A course on the design and implementation of operating systems', 5);
+
+INSERT INTO courses_teachers (course_id, teacher_id, status_id) VALUES
+  (1, 1, 6),
+  (2, 2, 6),
+  (3, 3, 6),
+  (4, 4, 7),
+  (4, 5, 6);
+
+INSERT INTO classes (course_id, teacher_id, name, start_date, end_date, status_id) VALUES
+  (1, 1, 'Programming Fundamentals', '2023-09-01', '2023-12-15', 8),
+  (1, 2, 'Database Design Principles', '2023-09-01', '2023-12-15', 8),
+  (1, 3, 'Web Development Fundamentals', '2023-09-01', '2023-12-15', 8),
+  (2, 4, 'Advanced Data Structures', '2023-09-01', '2023-12-15', 9),
+  (2, 2, 'Operating Systems and Kernel Design', '2023-09-01', '2023-12-15', 9);
+
+INSERT INTO class_students (class_id, student_id, status_id) VALUES
+  (1, 1, 10),
+  (1, 2, 10),
+  (1, 3, 11),
+  (2, 4, 10),
+  (2, 1, 10),
+  (3, 2, 10),
+  (3, 1, 10),
+  (4, 3, 10),
+  (4, 4, 10),
+  (5, 5, 10);
+
+INSERT INTO lectures (class_id, title, content, status_id) VALUES
+  (1, 'Introduction to Programming', 'Introduction to programming concepts and logic', 13),
+  (1, 'Variables and Data Types', 'Understanding variables and data types in programming',  13),
+  (2, 'Relational Database Design', 'Designing and implementing a relational database', 13),
+  (2, 'Normalization and Database Integrity', 'Understanding normalization and maintaining database integrity', 13),
+  (3, 'HTML and CSS Fundamentals', 'Introduction to HTML and CSS for web development', 13),
+  (3, 'JavaScript and jQuery', 'Introduction to JavaScript and jQuery for web development',  13),
+  (4, 'Trees and Graphs', 'Understanding advanced data structures like trees and graphs', 14),
+  (4, 'Sorting and Searching Algorithms', 'Understanding advanced sorting and searching algorithms', 14),
+  (5, 'Kernel Design Principles', 'Introduction to kernel design principles', 13),
+  (5, 'Process Scheduling and Memory Management', 'Understanding process scheduling and memory management in operating systems', 13);
+
+INSERT INTO attendances (class_id, student_id, lecture_id, status_id) VALUES
+  (1, 1, 1, 15),
+  (1, 2, 1, 15),
+  (1, 3, 1, 15),
+  (2, 4, 2, 15),
+  (2, 5, 2, 15),
+  (3, 6, 3, 15),
+  (3, 7, 3, 16),
+  (4, 2, 4, 16),
+  (4, 1, 4, 16),
+  (5, 1, 5, 15);
+
+INSERT INTO grades (class_id, student_id, lecture_id, grade, status_id) VALUES
+  (1, 1, 1, 85.0, 17),
+  (1, 2, 1, 92.5, 17),
+  (1, 3, 1, 78.0, 18),
+  (2, 4, 2, 88.5, 18),
+  (2, 5, 2, 91.0, 17),
+  (3, 6, 3, 79.5, 17),
+  (3, 7, 3, 84.0, 17),
+  (4, 2, 4, 90.0, 17),
+  (4, 1, 4, 86.5, 17),
+  (5, 1, 5, 93.0, 17);

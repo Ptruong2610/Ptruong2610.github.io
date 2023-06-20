@@ -1,0 +1,24 @@
+
+Các bảng database trong hệ thống Techmaster như sau:
+
+Bảng "users": lưu thông tin về tất cả người dùng trong hệ thống, bao gồm cột "id" là khóa chính, cột "username", "password" và "email" lưu trữ thông tin đăng nhập và cột "role" để phân biệt giáo viên và học viên.
+
+Bảng "admins": lưu trữ thông tin về các quản trị viên, bao gồm cột "id" là khóa chính và cột "user_id" là khóa ngoại tham chiếu đến bảng "users".
+
+Bảng "teachers": lưu trữ thông tin về giáo viên, bao gồm cột "id" là khóa chính, cột "user_id" là khóa ngoại tham chiếu đến bảng "users" và các cột thông tin cá nhân của giáo viên như "full_name", "phone_number" và "address".
+
+Bảng "students": lưu trữ thông tin về học viên, bao gồm cột "id" là khóa chính, cột "user_id" là khóa ngoại tham chiếu đến bảng "users" và các cột thông tin cá nhân của học viên như "full_name", "phone_number" và "address".
+
+Bảng "courses": lưu trữ thông tin về các khoá học, bao gồm cột "id" là khóa chính và các cột thông tin về tên khoá học và mô tả.
+
+Bảng "courses_teachers": lưu trữ thông tin về việc gán giáo viên cho các khoá học, bao gồm cột "id" là khóa chính và các cột "course_id" và "teacher_id" là khóa ngoại tham chiếu đến bảng "courses" và "teachers".
+
+Bảng "classes": lưu trữ thông tin về các lớp học, bao gồm cột "id" là khóa chính, các cột "course_id" và "teacher_id" là khóa ngoại tham chiếu đến bảng "courses" và "teachers", cột "name" lưu trữ tên lớp học, và cột "start_date" và "end_date" lưu trữ ngày bắt đầu và kết thúc của lớp học.
+
+Bảng "class_students": lưu trữ thông tin về việc gán học viên cho các lớp học, bao gồm cột "id" là khóa chính và các cột "class_id" và "student_id" là khóa ngoại tham chiếu đến bảng "classes" và "students".
+
+Bảng "lectures": lưu trữ thông tin về các bài giảng, bao gồm cột "id" là khóa chính, các cột "class_id" là khóa ngoại tham chiếu đến bảng "classes", cột "title" lưu trữ tiêu đề bài giảng, cột "content" lưu trữ nội dung bài giảng và cột "date_created" lưu trữ ngày tạo bài giảng.
+
+Bảng "attendances": lưu trữ thông tin về việc điểm danh các học viên trong các lớp học, bao gồm cột "id" là khóa chính và các cột "class_id", "student_id" và "lecture_id" là khóa ngoại tham chiếu đến bảng "classes", "students" và "lectures", cột "status" lưu trữ trạng thái điểm danh của học viên.
+
+Bảng "grades": lưu trữ thông tin về việc chấm điểm các học viên trong các lớp học, bao gồm cột "id" là khóa chính và các cột "class_id", "student_id" và "lecture_id" là khóa ngoại tham chiếu đến bảng "classes", "students" và "lectures", cột "grade" lưu trữ điểm của học viên cho bài giảng đó.
