@@ -1,9 +1,8 @@
 const calculateFactorial = (n) => {
-    let resul = 1;
-    for (let i = 1; i <= n; i++) {
-        resul *= i;
-    }
-    return resul;
+    if(n==0)
+    return 1;
+    else
+    return n * calculateFactorial(n-1);
 }
 console.log(calculateFactorial(5));
 
