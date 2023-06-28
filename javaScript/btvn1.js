@@ -1,8 +1,8 @@
 const calculateFactorial = (n) => {
-    if(n==0)
-    return 1;
+    if (n == 0)
+        return 1;
     else
-    return n * calculateFactorial(n-1);
+        return n * calculateFactorial(n - 1);
 }
 console.log(calculateFactorial(5));
 
@@ -41,10 +41,10 @@ const subString = (str) => {
     //     }
     //     return sub ;
 
-        if (str.length > 15) {
-            return str.substring(0, 10);
-        } else {
-            return str;
-        }
+    if (str.length > 15) {
+        return str.substring(0, 10);
+    } else {
+        return str;
+    }
 }
-console.log(subString("moinguoihaynoikhongvoimatuynhe")+"...");
+console.log(subString("moinguoihaynoikhongvoimatuynhe") + "...");
