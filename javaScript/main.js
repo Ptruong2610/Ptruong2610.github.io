@@ -107,3 +107,64 @@ const spherical = (r) => {
     return v;
 }
 console.log(spherical(5));
+
+// Khai báo array rỗng
+let arr = [];
+
+// Khai báo array
+let number = [];
+
+// Gán giá trị cho các phần tử của array thông qua chỉ số
+number[0] = 1;
+number[1] = "Bùi Hiên";
+number[2] = true;
+
+// Khai báo và khởi tạo giá trị cho array
+let myArr = [1, 2, 3, 4, true, false, "Nguyễn Văn A"];
+
+console.log(myArr);
+
+const maxNumber = (arr) => {
+    let max = arr[0];
+    arr.forEach(e => {
+        if (max < e) {
+            max = e;
+        }  
+        
+    })
+    return max; 
+  
+}
+console.log(maxNumber([12,3,5,15,4,2,10]));
+
+const modulo2 = (arr) =>{
+    return arr.map((e) => e%2);
+}
+console.log(modulo2([4, 2, 5, 6, 2, 7]));
+
+const copyString = (a) =>{
+    let str = [];
+  for(let i=0;i<10;i++){
+    str.push(a);
+  }
+  return str.join('');
+}
+console.log(copyString('truong'));
+
+const copyString1 = (a) =>{
+    let str = [];
+  for(let i=0;i<10;i++){
+    str.push(a);    
+  }
+  return str.join('-');
+}
+console.log(copyString1('truong'));
+
+const isSymmetricString = (a) =>{
+    let b = str.split('').reverse().join('');
+    if(a===b)
+    return true;
+    else
+    return false;
+}
+console.log(isSymmetricString('Racecar'));
