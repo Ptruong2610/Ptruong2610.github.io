@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Todo Application</h2>
+    <input type="text" placeholder="Enter todo" id="todo-input">
+    <button id="btn-add">Add</button>
+
+    <ul>
+        <!-- <li>
+            <input type="checkbox" checked>
+            <span class="active">Đi chơi với bạn bè</span>
+            <button>Edit</button>
+            <button>Delete</button>
+        </li>
+        <li>
+            <input type="checkbox">
+            <span>Làm bài tập về nhà</span>
+            <button>Edit</button>
+            <button>Delete</button>
+        </li>
+        <li>
+            <input type="checkbox" checked>
+            <span class="active">Đá bóng</span>
+            <button>Edit</button>
+            <button>Delete</button>
+        </li> -->
+    </ul>
+
+    <script>
+        const todoList = document.querySelector("ul");
+        const todoInput = document.querySelector("#todo-input");
+        const addBtn = document.querySelector("#btn-add");
+
+        // Hiển thị thông báo nếu danh sách công việc rỗng
+        if (todoList.children.length === 0) {
+            const emptyMessage = document.createElement("p");
+            emptyMessage.textContent = "Danh sách công việc trống";
+            todoList.appendChild(emptyMessage);
+        } else {
+            // Ẩn thông báo nếu danh sách công việc không rỗng
+            const emptyMessage = todoList.querySelector("p");
+            if (emptyMessage) {
+                emptyMessage.style.display = "none";
+            }
+        }
+
+        function addTodo() {
+            const todoTitle = todoInput.value.trim();
+            if (!todoTitle) {
+                alert("Tên công việc không được để trống");
+                return;
+            }
+            const newTodo = createTodoItem(todoTitle);
+            todoList.appendChild(newTodo);
+            todoInput.value = "";
+            // Hiển thị thông báo nếu danh sách công việc rỗng
+            if (todoList.children.length === 0) {
+                const emptyMessage = document.createElement("p");
+                emptyMessage.textContent = "Danh sách công việc trống";
+                todoList.appendChild(emptyMessage);
+            } else {
+                // Ẩn thông báo nếu danh sách công việc không rỗng
+                const emptyMessage = todoList.querySelector("p");
+                if (emptyMessage) {
+                    emptyMessage.style.display = "none";
+                }
+            }
+
+        }
+
+        function createTodoItem(todoTitle) {
+
+            const li = document.createElement("li");
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.addEventListener("change", toggleTodoStatus);
+            const span = document.createElement("span");
+            span.textContent = todoTitle;
+            const editBtn = document.createElement("button");
+            editBtn.textContent = "Edit";
+            editBtn.addEventListener("click", editTodoItem);
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "Delete";
+            deleteBtn.addEventListener("click", deleteTodoItem);
+            li.appendChild(checkbox);
+            li.appendChild(span);
+            li.appendChild(editBtn);
+            li.appendChild(deleteBtn);
+            return li;
+        }
+
+        function toggleTodoStatus(event) {
+            const checkbox = event.target;
+            const span = checkbox.nextElementSibling;
+            if (checkbox.checked) {
+                span.classList.add("active");
+            } else {
+                span.classList.remove("active");
+            }
+        }
+
+        function editTodoItem(event) {
+            const editBtn = event.target;
+            const li = editBtn.parentElement;
+            const span = li.querySelector("span");
+            const newTitle = window.prompt("Nhập tiêu đề mới", span.textContent);
+            if (newTitle !== null) {
+                span.textContent = newTitle.trim();
+            }
+        }
+
+        function deleteTodoItem(event) {
+            const deleteBtn = event.target;
+            const li = deleteBtn.parentElement;
+            const confirmDelete = window.confirm("Bạn có chắc muốn xóa công việc này không?");
+            if (confirmDelete) {
+                li.remove();
+            
+            }
+          
+        }
+       
+
+
+        addBtn.addEventListener("click", addTodo);
+
+
+    </script>
+</body>
+
+</html>
