@@ -14,11 +14,8 @@
  })
  .catch(error => console.error(error));
 
-
-
 // Lấy danh sách sub-breed khi người dùng bấm nút "Get Sub Breeds"
 const subBreedButton = document.getElementById("subBreedButton");
-
 subBreedButton.addEventListener("click", () => {
  const breedSelect = document.getElementById("breedSelect");
  const breed = breedSelect.value;
@@ -53,7 +50,7 @@ subBreedButton.addEventListener("click", () => {
          });
          subBreedList.appendChild(listItem);
        }
-     } else if(data.message.length===0) {
+     } else {
        const listItem = document.createElement("li");
        listItem.textContent = "Không tìm thấy sub breed.";
        subBreedList.appendChild(listItem);
