@@ -28,9 +28,9 @@ subBreedButton.addEventListener("click", () => {
 
 
  // Xóa danh sách sub-breed cũ (nếu có)
- while (subBreedList.firstChild) {
-   subBreedList.removeChild(subBreedList.firstChild);
- }
+//  while (subBreedList.firstChild) {
+//    subBreedList.removeChild(subBreedList.firstChild);
+//  }
 
  // Lấy danh sách sub-breed từ API và hiển thị trên trang web
  fetch(`https://dog.ceo/api/breed/${breed}/list`)
@@ -53,7 +53,7 @@ subBreedButton.addEventListener("click", () => {
          });
          subBreedList.appendChild(listItem);
        }
-     } else {
+     } else if(data.message.length===0) {
        const listItem = document.createElement("li");
        listItem.textContent = "Không tìm thấy sub breed.";
        subBreedList.appendChild(listItem);
@@ -63,4 +63,6 @@ subBreedButton.addEventListener("click", () => {
 
    randomImage.innerHTML = `<img src="" alt="">`;
 });
+
+
 
