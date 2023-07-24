@@ -18,9 +18,7 @@
 
 // Lấy danh sách sub-breed khi người dùng bấm nút "Get Sub Breeds"
 const subBreedButton = document.getElementById("subBreedButton");
-subBreedButton.addEventListener("click", () => {
-    randomImage.innerHTML = `<img src="" alt="">`;
-  });
+
 subBreedButton.addEventListener("click", () => {
  const breedSelect = document.getElementById("breedSelect");
  const breed = breedSelect.value;
@@ -62,5 +60,7 @@ subBreedButton.addEventListener("click", () => {
      }
    })
    .catch(error => console.error(error));
+
+   randomImage.innerHTML = `<img src="" alt="">`;
 });
 
