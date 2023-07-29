@@ -22,8 +22,6 @@ subBreedButton.addEventListener("click", () => {
  const subBreedList = document.getElementById("subBreedList");
  const randomImage = document.getElementById("randomImage");
  subBreedList.textContent = "Sub Breeds List:";
-
-
  // Xóa danh sách sub-breed cũ (nếu có)
 //  while (subBreedList.firstChild) {
 //    subBreedList.removeChild(subBreedList.firstChild);

@@ -1,0 +1,41 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Đá bóng",
+      "status": false
+    },
+    {
+      "id": 2,
+      "title": "Đi ngủ",
+      "status": false
+    },
+    {
+      "title": "Đang học",
+      "status": false,
+      "id": 3
+    },
+    {
+      "title": "Đang chơi",
+      "status": false,
+      "id": 4
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
