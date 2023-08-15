@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            background-color: #e5e5e5;
+        }
+
+        .service-item {
+            max-width: 1199px;
+            min-height: auto;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 3.75rem;
+            margin: 57px auto 0;
+            font-family: Oswald, sans-serif !important;
+            font-weight: 400;
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: #f12c0e !important;
+
+        }
+
+        .u-text {
+            width: 760px;
+            font-style: italic;
+            margin: 20px auto 0;
+            margin-top: 0;
+            padding: 0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .menu {
+            /* max-width: 1199px; */
+            min-height: 510px;
+            display: grid;
+            grid-template-columns: repeat(2, calc(((100% - 1140px) / 2) + 555px));
+            min-height: 510px;
+            grid-template-rows: repeat(2, auto);
+            grid-gap: 30px;
+            /* Khoảng cách giữa các sản phẩm */
+            margin: 20px 0 0;
+
+        }
+
+        .menu-item {
+
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        .menu-item-li {
+            padding: 30px 0 30px 30px;
+            justify-content: flex-start;
+
+
+
+        }
+
+        .group {
+            width: 270px;
+            min-height: 249px;
+            /* margin: 20px 20px; */
+        }
+
+        .group-item {
+            padding: 0 25px;
+            text-align: left;
+            color: #111111;
+        }
+
+        .group-item h3 {
+            margin: 20px 0 0;
+            font-weight: 400;
+            font-size: 1.875rem;
+            line-height: 1.2;
+            font-family: Oswald, sans-serif !important;
+        }
+
+        .group-item p {
+            font-style: italic;
+            margin: 20px 0 0 auto;
+        }
+
+        .group-item h6 {
+            font-weight: 700;
+            margin: 20px 0 0;
+            color: #f12c0e !important;
+            font-size: 1.125rem;
+            line-height: 1.2;
+            font-family: Roboto, sans-serif;
+        }
+
+        .group-item .u-btn-1 {
+            border-style: none;
+            text-transform: uppercase;
+            background-image: none;
+            font-size: 0.875rem;
+            margin: 20px 0 0;
+        }
+
+        .u-button-style.u-grey-10,
+        .u-button-style.u-grey-10[class*="u-border-"] {
+            color: #111111 !important;
+            background-color: #e5e5e5 !important;
+        }
+
+        .u-btn {
+            /* display: inline-block; */
+            display: table;
+            cursor: pointer;
+            color: inherit;
+            font-style: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            font-family: inherit;
+            line-height: inherit;
+            letter-spacing: inherit;
+            text-transform: inherit;
+            text-decoration: none;
+            border: 0 none transparent;
+            outline-width: 0;
+            background-color: transparent;
+            margin: 0;
+            -webkit-text-decoration-skip: objects;
+            font-style: initial;
+            white-space: nowrap;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            vertical-align: middle;
+            text-align: center;
+            padding: 10px 30px;
+            border-radius: 0;
+            align-self: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section id="service">
+            <div class=" service-item container d-flex flex-column text-center">
+                <h1>Menu</h1>
+                <p class="u-text">Unique wood fired pizzas or be tempted by our pasta, antipasto, focaccias, salads and
+                    Bruschetta
+                    dishes. Relax in the friendly ambience as you enjoy the aromas of the wood ovens or sit al fresco
+                    and soak up the Mildura sunshine.</p>
+                <div class="menu ">
+                    <div class=" menu-item d-flex">
+                        <div class="menu-item-li d-flex">
+                            <img src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/910bd281016d57a199450c15/3981417.jpg"
+                                style="width: 255px; height: 249px; object-fit: cover;margin: 0 auto 0 0;" alt="">
+                            <div class="group">
+                                <div class="group-item">
+                                    <h3>Original</h3>
+                                    <p>Tomato sauce, mozzarella & oregano</p>
+                                    <h6>$18.00</h6>
+                                    <a href="https://nicepage.com"
+                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class=" menu-item d-flex">
+                        <div class="menu-item-li d-flex">
+                            <img src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/6d842bd1e6e354edb2a8baed/pizza-dark-background-classic-italian-pizza-with-tomatoes-pepper-vegetables-sauce-mozarella-cheese-dark-kitchen-table-copy-space_90380-947.jpg"
+                                style="width: 255px; height: 249px; object-fit: cover;margin: 0 auto 0 0;" alt="">
+                            <div class="group">
+                                <div class="group-item">
+                                    <h3>Salami</h3>
+                                    <p>Tomato sauce, mozzarella & mild salami</p>
+                                    <h6>$15.00</h6>
+                                    <a href="https://nicepage.com"
+                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class=" menu-item d-flex">
+                        <div class="menu-item-li d-flex">
+                            <img src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/d087beea5e3b5475974ecfe1/mixed-pizza-with-olive-bell-pepper-tomato_140725-183.jpg"
+                                style="width: 255px; height: 249px; object-fit: cover;margin: 0 auto 0 0;" alt="">
+                            <div class="group">
+                                <div class="group-item">
+                                    <h3>Chicken</h3>
+                                    <p>Tomato sauce, mozzarella, chicken, pineapple* & bbq sauce</p>
+                                    <h6>$25.00</h6>
+                                    <a href="https://nicepage.com"
+                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class=" menu-item d-flex">
+                        <div class="menu-item-li d-flex">
+                            <img src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/457320aab346570eb0d91acd/sdw.jpg"
+                                style="width: 255px; height: 249px; object-fit: cover;margin: 0 auto 0 0;" alt="">
+                            <div class="group">
+                                <div class="group-item">
+                                    <h3>Hawaiian</h3>
+                                    <p>Tomato sauce, mozzarella, ham & pineapple</p>
+                                    <h6>$16.00</h6>
+                                    <a href="https://nicepage.com"
+                                        class="u-btn u-btn-rectangle u-button-style u-grey-10 u-btn-1">add to cart</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <p class=" u-text-default u-text-15" style="    margin: 50px auto 45px;text-align: center;">Images from
+                    <a style="
+                    color: #f05510;
+                    text-decoration: none;" href="https://www.freepik.com/free-photos-vectors/background"
+                        target="_blank"><b>Freepik</b>
+                    </a>
+                </p>
+
+            </div>
+
+        </section>
+    </main>
+    <footer class="footer d-flex justify-content-center mt-4" id="sec-a2a9" style="color: #ffffff;
+    background-color: #333333;text-align: center;">
+        <div class="u-clearfix u-sheet u-sheet-1">
+            <p class="text-footer" style="width: 417px;
+            margin: 49px auto;font-size: 0.875rem;">Sample text. Click to select the text box. Click
+                again or double click to start editing the text.</p>
+        </div>
+    </footer>
+    <section class="sectionLate d-flex justify-content-center pb-3" style="    color: #ffffff;
+    background-color: #333333;text-align: center;">
+        <a class="me-1" style="color: burlywood;" href="https://nicepage.com/website-builder" target="_blank">
+          <span>Template</span>
+        </a>
+        <p class="me-1">
+          <span>created with</span>
+        </p>
+        <a class="u-link" style="color: burlywood;" href="https://nicepage.com/website-builder" target="_blank">
+          <span>Nicepage</span>
+        </a>. 
+      </section>
+</body>
+
+</html>

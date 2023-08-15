@@ -1,0 +1,12 @@
+
+.page-preview-body {
+    height: calc(100% - 70px);
+    overflow: hidden;
+    text-align: center;
+}
+ .u-text-1 {
+    font-weight: 700;
+    font-size: 1.875rem;
+    width: 345px;
+    margin: 31px auto 0;
+}
